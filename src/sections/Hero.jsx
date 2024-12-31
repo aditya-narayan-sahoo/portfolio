@@ -5,14 +5,14 @@ import { useMediaQuery } from "react-responsive";
 import { PerspectiveCamera } from "@react-three/drei";
 
 import { calculateSizes } from "../constants";
-import Cube from "../constants/components/Cube";
-import Rings from "../constants/components/Rings";
-import Target from "../constants/components/Target";
-import Button from "../constants/components/Button";
-import ReactLogo from "../constants/components/ReactLogo";
-import HeroCamera from "../constants/components/HeroCamera";
-import { HackerRoom } from "../constants/components/HackerRoom";
-import CanvasLoader from "../constants/components/CanvasLoader";
+import Cube from "../components/Cube";
+import Rings from "../components/Rings";
+import Target from "../components/Target";
+import Button from "../components/Button";
+import ReactLogo from "../components/ReactLogo";
+import HeroCamera from "../components/HeroCamera";
+import { HackerRoom } from "../components/HackerRoom";
+import CanvasLoader from "../components/CanvasLoader";
 
 const Hero = () => {
   const isSmall = useMediaQuery({ maxWidth: 440 });
