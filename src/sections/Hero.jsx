@@ -4,7 +4,6 @@ import { Canvas } from "@react-three/fiber";
 import { useMediaQuery } from "react-responsive";
 import { PerspectiveCamera } from "@react-three/drei";
 
-import { calculateSizes } from "../constants";
 import Cube from "../components/Cube";
 import Rings from "../components/Rings";
 import Target from "../components/Target";
@@ -13,6 +12,7 @@ import ReactLogo from "../components/ReactLogo";
 import HeroCamera from "../components/HeroCamera";
 import { HackerRoom } from "../components/HackerRoom";
 import CanvasLoader from "../components/CanvasLoader";
+import { calculateSizes, resumeLink } from "../constants";
 
 const Hero = () => {
   const isSmall = useMediaQuery({ maxWidth: 440 });
@@ -52,7 +52,14 @@ const Hero = () => {
         </Canvas>
       </div>
 
-      <div className="absolute bottom-7 left-0 right-0 w-full z-10 c-space">
+      <div className="absolute bottom-1 left-0 right-0 w-full z-10 c-space">
+        <a href={resumeLink} target="_blank">
+          <Button
+            name="My Resume"
+            isBeam
+            containerClass="sm:w-fit w-full sm:min-w-96 mb-3"
+          />
+        </a>
         <a href="#about" className="w-fit">
           <Button
             name="Let's work together"

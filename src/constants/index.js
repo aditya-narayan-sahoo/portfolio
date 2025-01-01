@@ -271,3 +271,6 @@ export const workExperiences = [
     animation: "salute",
   },
 ];
+
+export const resumeLink =
+  "https://drive.google.com/file/d/1ACu1YynLsPG7gXq9tfhtzVfsonAu2v-q/view?usp=drive_link";
