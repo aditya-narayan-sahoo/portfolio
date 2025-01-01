@@ -248,3 +248,26 @@ export const myProjects = [
     ],
   },
 ];
+
+export const workExperiences = [
+  {
+    id: 1,
+    name: "KPIT Technologies",
+    pos: "Software Engineer Intern",
+    duration: { start: "2023-12", end: "2024-05" },
+    title:
+      "I was involved in the full SDLC, focusing on designing, implementing and testing the solutions. My role included collaborating with cross-functional teams to deliver innovative software solutions, troubleshooting complex technical issues, and participating in training programs to enhance my technical skills.",
+    icon: "/assets/kpit.jpg",
+    animation: "clapping",
+  },
+  {
+    id: 2,
+    name: "Persistent Systems",
+    pos: "Summer Intern",
+    duration: { start: "2023-06", end: "2023-08" },
+    title:
+      "I focused on developing dynamic web applications using React.js and state management using Redux.Additionally, I collaborated with cross-functional teams to enhance user experience and conducted thorough testing to ensure high-quality deliverables ",
+    icon: "/assets/persistent.jpeg",
+    animation: "salute",
+  },
+];
