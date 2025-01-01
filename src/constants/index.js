@@ -55,3 +55,196 @@ export const calculateSizes = (isSmall, isMobile, isTablet) => {
       : [-13, -13, -10],
   };
 };
+
+export const myProjects = [
+  {
+    title: "Chatty - Chat with people",
+    desc: "Chatty is a real time chat app that allows users to connect with others and share their thoughts, ideas, and experiences.",
+    subdesc:
+      "Built with React.js, Vite, TailwindCSS, Node.js, MongoDB, and Socket.io. The global state is managed using Zustand and the user authentication is handled using JWT with encryption using bcrypt. Users can see other online users in real time with the help of Socket.io",
+    href: "https://chatty-72tc.onrender.com/",
+    texture: "/textures/project/project1.mp4",
+    logo: "/assets/project-logo1.png",
+    logoStyle: {
+      backgroundColor: "#0E0E10",
+      border: "0.2px solid #36201D",
+      boxShadow: "0px 0px 60px 0px #AA3C304D",
+    },
+    spotlight: "/assets/spotlight1.png",
+    tags: [
+      {
+        id: 1,
+        name: "React.js",
+        path: "/assets/react.svg",
+      },
+      {
+        id: 2,
+        name: "TailwindCSS",
+        path: "assets/tailwindcss.png",
+      },
+      {
+        id: 3,
+        name: "Javascript",
+        path: "/assets/javascript.png",
+      },
+      {
+        id: 4,
+        name: "Node.js",
+        path: "/assets/nodejs.png",
+      },
+      {
+        id: 5,
+        name: "MongoDB",
+        path: "/assets/mongodb.png",
+      },
+    ],
+  },
+  {
+    title: "NetflixGPT - Search movies with AI",
+    desc: "NetflixGPT is a movie recommendation app that uses TMDB API to fetch movies & Google Gemini to generate movie recommendations based on user input.",
+    subdesc:
+      "An innovative movie recommendation app that leverages the TMDB API & Google Gemini for intelligent recommendation generation. Developed using React.js, styled using Tailwind CSS and Firebase for backend services, including user authentication and data storage.",
+    href: "https://netflixgpt-ans.web.app/",
+    texture: "/textures/project/project2.mp4",
+    logo: "/assets/project-logo2.jpg",
+    logoStyle: {
+      backgroundColor: "#13202F",
+      border: "0.2px solid #17293E",
+      boxShadow: "0px 0px 0px 0px #2F6DB54D",
+    },
+    spotlight: "/assets/spotlight2.png",
+    tags: [
+      {
+        id: 1,
+        name: "React.js",
+        path: "/assets/react.svg",
+      },
+      {
+        id: 2,
+        name: "TailwindCSS",
+        path: "assets/tailwindcss.png",
+      },
+      {
+        id: 3,
+        name: "JavaScript",
+        path: "/assets/javascript.png",
+      },
+      {
+        id: 4,
+        name: "Firebase",
+        path: "/assets/firebase.png",
+      },
+    ],
+  },
+  {
+    title: "Foody - Order Food Online",
+    desc: "Foody is a food ordering app that allows users to browse and order food from various restaurants. It also provides cart management and customer support.",
+    subdesc:
+      "A responsive and user-friendly food ordering app developed using React.js. It uses Redux for state management. It allows users to search for restaurants, filter them by rating, and manage the cart by adding or removing items. The project incorporates Vitest library for testing.",
+    href: "https://ans-order-food.netlify.app/",
+    texture: "/textures/project/project3.mp4",
+    logo: "/assets/project-logo3.webp",
+    logoStyle: {
+      backgroundColor: "#0E0E10",
+      background: "#0E0E10",
+      boxShadow: "0px 0px 60px 0px rgba(35, 131, 96, 0.3)",
+    },
+    spotlight: "/assets/spotlight3.png",
+    tags: [
+      {
+        id: 1,
+        name: "React.js",
+        path: "/assets/react.svg",
+      },
+      {
+        id: 2,
+        name: "TailwindCSS",
+        path: "assets/tailwindcss.png",
+      },
+      {
+        id: 3,
+        name: "JavaScript",
+        path: "/assets/javascript.png",
+      },
+      {
+        id: 4,
+        name: "Vitest",
+        path: "/assets/vitest.webp",
+      },
+    ],
+  },
+  {
+    title: "YCDirectory - Project Showcase App",
+    desc: " Directory is a project showcase app that allows users to search for projects and view their details. It also provides a contact form for users to get in touch with the project owner.",
+    subdesc:
+      "Built with Next.js 15, it uses Tailwind CSS and Shadcn UI for styling. It uses sanity CMS for project management and includes a contact form for users to get in touch with the project owner.Users can submit startup ideas, including title, description, category & links. ",
+    href: "https://show-it-sigma.vercel.app/",
+    texture: "/textures/project/project4.mp4",
+    logo: "/assets/project-logo4.svg",
+    logoStyle: {
+      backgroundColor: "#1C1A43",
+      border: "0.2px solid #252262",
+      boxShadow: "0px 0px 60px 0px #635BFF4D",
+    },
+    spotlight: "/assets/spotlight5.png",
+    tags: [
+      {
+        id: 1,
+        name: "React.js",
+        path: "/assets/react.svg",
+      },
+      {
+        id: 2,
+        name: "TailwindCSS",
+        path: "assets/tailwindcss.png",
+      },
+      {
+        id: 3,
+        name: "TypeScript",
+        path: "/assets/typescript.png",
+      },
+      {
+        id: 4,
+        name: "Sanity CMS",
+        path: "/assets/sanity.png",
+      },
+    ],
+  },
+  {
+    title: "StoreIt - Store Files On Cloud",
+    desc: "StoreIt is a cloud storage app that allows users to store their files on the cloud. It also provides a contact form for users to get in touch with the project owner.",
+    subdesc:
+      "A storage management and file sharing platform that lets users effortlessly upload, organize, and share files. Built with the latest Next.js 15 and the Appwrite Node SDK, utilizing advanced features for seamless file management.",
+    href: "https://store-it-steel.vercel.app/",
+    texture: "/textures/project/project5.mp4",
+    logo: "/assets/project-logo5.svg",
+    logoStyle: {
+      backgroundColor: "#1C1A43",
+      border: "0.2px solid #252262",
+      boxShadow: "0px 0px 60px 0px #635BFF4D",
+    },
+    spotlight: "/assets/spotlight4.png",
+    tags: [
+      {
+        id: 1,
+        name: "React.js",
+        path: "/assets/react.svg",
+      },
+      {
+        id: 2,
+        name: "TailwindCSS",
+        path: "assets/tailwindcss.png",
+      },
+      {
+        id: 3,
+        name: "TypeScript",
+        path: "/assets/typescript.png",
+      },
+      {
+        id: 4,
+        name: "Appwrite",
+        path: "/assets/appwrite.jpg",
+      },
+    ],
+  },
+];
