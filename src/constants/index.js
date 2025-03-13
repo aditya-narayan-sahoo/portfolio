@@ -273,4 +273,4 @@ export const workExperiences = [
 ];
 
 export const resumeLink =
-  "https://drive.google.com/file/d/1ACu1YynLsPG7gXq9tfhtzVfsonAu2v-q/view?usp=drive_link";
+  "https://drive.google.com/file/d/1o6fQArSOV2HIj2vK7CakH2ZOqLigJR3D/view?usp=drive_link";
