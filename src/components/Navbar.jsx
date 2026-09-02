@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { personalInfo } from '../data/portfolioData';
+import { Link, NavLink } from 'react-router-dom';
 import { 
   Terminal, 
+  Home,
   Layers, 
   Briefcase, 
   Cpu, 
@@ -10,7 +11,6 @@ import {
   FileText, 
   Menu, 
   X,
-  ExternalLink,
   Sun,
   Moon
 } from 'lucide-react';
@@ -18,7 +18,6 @@ import {
 export default function Navbar({ onOpenResume }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('hero');
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('theme') || 'dark';
   });
@@ -41,21 +40,6 @@ export default function Navbar({ onOpenResume }) {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 30);
-
-      const sections = ['pipeline', 'experience', 'skills', 'credentials', 'education', 'contact'];
-      const scrollPosition = window.scrollY + 200;
-
-      for (const section of sections) {
-        const el = document.getElementById(section);
-        if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPosition >= top && scrollPosition < top + height) {
-            setActiveSection(section);
-            break;
-          }
-        }
-      }
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -63,18 +47,18 @@ export default function Navbar({ onOpenResume }) {
   }, []);
 
   const navLinks = [
-    { name: 'Architecture', href: '#pipeline', icon: Layers },
-    { name: 'Experience', href: '#experience', icon: Briefcase },
-    { name: 'Skills', href: '#skills', icon: Cpu },
-    { name: 'Credentials', href: '#credentials', icon: Award },
-    { name: 'Contact', href: '#contact', icon: Mail }
+    { name: 'Overview', to: '/', icon: Home, end: true },
+    { name: 'Architecture', to: '/pipeline', icon: Layers },
+    { name: 'Experience', to: '/experience', icon: Briefcase },
+    { name: 'Credentials', to: '/credentials', icon: Award },
+    { name: 'Contact', to: '/contact', icon: Mail }
   ];
 
   return (
     <nav className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
       <div className="container nav-container">
         {/* Brand */}
-        <a href="#" className="nav-brand">
+        <Link to="/" className="nav-brand" onClick={() => setMobileMenuOpen(false)}>
           <div className="brand-avatar">
             <span className="brand-code">&gt;_</span>
           </div>
@@ -82,22 +66,22 @@ export default function Navbar({ onOpenResume }) {
             <span className="brand-name">Aditya N. Sahoo</span>
             <span className="brand-role">Cloud & Data / Applied AI @ IBM</span>
           </div>
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="nav-links">
           {navLinks.map((link) => {
             const Icon = link.icon;
-            const isActive = activeSection === link.href.substring(1);
             return (
-              <a
+              <NavLink
                 key={link.name}
-                href={link.href}
-                className={`nav-link ${isActive ? 'active' : ''}`}
+                to={link.to}
+                end={link.end}
+                className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
               >
                 <Icon size={15} />
                 <span>{link.name}</span>
-              </a>
+              </NavLink>
             );
           })}
         </div>
@@ -128,9 +112,9 @@ export default function Navbar({ onOpenResume }) {
             {theme === 'dark' ? <Sun size={16} className="text-amber" /> : <Moon size={16} className="text-cyan" />}
           </button>
 
-          <a href="#contact" className="btn btn-primary btn-sm">
+          <Link to="/contact" className="btn btn-primary btn-sm">
             <span>Connect</span>
-          </a>
+          </Link>
 
           {/* Mobile Menu Button */}
           <button 
@@ -150,15 +134,16 @@ export default function Navbar({ onOpenResume }) {
             {navLinks.map((link) => {
               const Icon = link.icon;
               return (
-                <a
+                <NavLink
                   key={link.name}
-                  href={link.href}
-                  className="mobile-link"
+                  to={link.to}
+                  end={link.end}
+                  className={({ isActive }) => `mobile-link ${isActive ? 'active' : ''}`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   <Icon size={18} />
                   <span>{link.name}</span>
-                </a>
+                </NavLink>
               );
             })}
             <div className="mobile-menu-divider"></div>

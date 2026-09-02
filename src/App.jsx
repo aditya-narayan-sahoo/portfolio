@@ -1,42 +1,64 @@
 import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import PipelineVisualizer from './components/PipelineVisualizer';
-import ExperienceSection from './components/ExperienceSection';
-import SkillsSection from './components/SkillsSection';
-import CredentialsSection from './components/CredentialsSection';
-import EducationSection from './components/EducationSection';
-import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import ResumeModal from './components/ResumeModal';
+import ScrollToTop from './components/ScrollToTop';
+
+// Pages
+import HomePage from './pages/HomePage';
+import PipelinePage from './pages/PipelinePage';
+import ExperiencePage from './pages/ExperiencePage';
+import CredentialsPage from './pages/CredentialsPage';
+import ContactPage from './pages/ContactPage';
 
 export default function App() {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
 
   return (
-    <div className="portfolio-app">
-      {/* Navigation */}
-      <Navbar onOpenResume={() => setIsResumeOpen(true)} />
+    <BrowserRouter>
+      <ScrollToTop />
+      <div className="portfolio-app">
+        {/* Persistent Global Navigation */}
+        <Navbar onOpenResume={() => setIsResumeOpen(true)} />
 
-      {/* Main Content Sections */}
-      <main>
-        <Hero onOpenResume={() => setIsResumeOpen(true)} />
-        <PipelineVisualizer />
-        <ExperienceSection />
-        <SkillsSection />
-        <CredentialsSection />
-        <EducationSection />
-        <ContactSection onOpenResume={() => setIsResumeOpen(true)} />
-      </main>
+        {/* Multi-Page Routes */}
+        <main className="main-content-router">
+          <Routes>
+            <Route 
+              path="/" 
+              element={<HomePage onOpenResume={() => setIsResumeOpen(true)} />} 
+            />
+            <Route 
+              path="/pipeline" 
+              element={<PipelinePage />} 
+            />
+            <Route 
+              path="/experience" 
+              element={<ExperiencePage />} 
+            />
+            <Route 
+              path="/credentials" 
+              element={<CredentialsPage />} 
+            />
+            <Route 
+              path="/contact" 
+              element={<ContactPage onOpenResume={() => setIsResumeOpen(true)} />} 
+            />
+            {/* Fallback redirect */}
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </main>
 
-      {/* Footer */}
-      <Footer />
+        {/* Global Footer */}
+        <Footer />
 
-      {/* Full Resume Modal */}
-      <ResumeModal 
-        isOpen={isResumeOpen} 
-        onClose={() => setIsResumeOpen(false)} 
-      />
-    </div>
+        {/* Globally Accessible Resume Modal */}
+        <ResumeModal 
+          isOpen={isResumeOpen} 
+          onClose={() => setIsResumeOpen(false)} 
+        />
+      </div>
+    </BrowserRouter>
   );
 }

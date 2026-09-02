@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { personalInfo } from '../data/portfolioData';
 import { 
   ArrowRight, 
@@ -44,14 +45,14 @@ export default function Hero({ onOpenResume }) {
 
         {/* Action Buttons */}
         <div className="hero-actions">
-          <a href="#pipeline" className="btn btn-primary">
+          <Link to="/pipeline" className="btn btn-primary">
             <span>Explore Pipeline Visualizer</span>
             <ArrowRight size={16} />
-          </a>
-          <a href="#experience" className="btn btn-secondary">
+          </Link>
+          <Link to="/experience" className="btn btn-secondary">
             <Activity size={16} />
             <span>Enterprise Experience</span>
-          </a>
+          </Link>
           <button onClick={onOpenResume} className="btn btn-outline-cyan">
             <span>View Full CV</span>
           </button>

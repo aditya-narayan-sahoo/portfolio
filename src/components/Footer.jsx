@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { personalInfo } from '../data/portfolioData';
 import { ArrowUp, Terminal, Shield, Heart } from 'lucide-react';
 
@@ -21,10 +22,18 @@ export default function Footer() {
             </div>
           </div>
 
+          <div className="footer-nav-links">
+            <Link to="/" className="footer-nav-link">Overview</Link>
+            <Link to="/pipeline" className="footer-nav-link">Architecture</Link>
+            <Link to="/experience" className="footer-nav-link">Experience</Link>
+            <Link to="/credentials" className="footer-nav-link">Credentials</Link>
+            <Link to="/contact" className="footer-nav-link">Contact</Link>
+          </div>
+
           <div className="footer-status-box">
             <div className="status-pill">
               <span className="status-dot"></span>
-              <span>All Cloud Systems Operational (99.98% SLA)</span>
+              <span>All Systems Operational (99.98% SLA)</span>
             </div>
             <button 
               onClick={scrollToTop} 
@@ -33,7 +42,7 @@ export default function Footer() {
               title="Return to top of page"
             >
               <ArrowUp size={16} />
-              <span>Back to Top</span>
+              <span>Top</span>
             </button>
           </div>
         </div>
