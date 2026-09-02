@@ -113,7 +113,7 @@ export default function HomePage({ onOpenResume }) {
               </div>
               <p className="exp-teaser-desc">{currentRole.summary}</p>
               <ul className="exp-teaser-points">
-                {currentRole.highlights.slice(0, 3).map((pt, i) => (
+                {(currentRole?.bullets || []).slice(0, 3).map((pt, i) => (
                   <li key={i}>
                     <CheckCircle2 size={14} className="text-cyan point-icon" />
                     <span>{pt}</span>
@@ -132,14 +132,14 @@ export default function HomePage({ onOpenResume }) {
               <div className="exp-teaser-header">
                 <div>
                   <span className="role-company-badge">Client Engagement</span>
-                  <h3 className="exp-teaser-role">{previousRole.role}</h3>
-                  <span className="exp-teaser-period">{previousRole.company}</span>
+                  <h3 className="exp-teaser-role">{previousRole?.role}</h3>
+                  <span className="exp-teaser-period">{previousRole?.company}</span>
                 </div>
                 <span className="status-pill status-dim">Global Market</span>
               </div>
-              <p className="exp-teaser-desc">{previousRole.summary}</p>
+              <p className="exp-teaser-desc">{previousRole?.summary}</p>
               <ul className="exp-teaser-points">
-                {previousRole.highlights.slice(0, 3).map((pt, i) => (
+                {(previousRole?.bullets || []).slice(0, 3).map((pt, i) => (
                   <li key={i}>
                     <CheckCircle2 size={14} className="text-cyan point-icon" />
                     <span>{pt}</span>
@@ -169,8 +169,8 @@ export default function HomePage({ onOpenResume }) {
                 Holding accredited certifications in Databricks, AWS, Matillion ETL, and Snowflake, backed by deep operational competencies in enterprise orchestration and software reliability.
               </p>
               <div className="cred-teaser-badges">
-                {credentials.slice(0, 4).map((cred) => (
-                  <div key={cred.id} className="cred-mini-badge">
+                {credentials.slice(0, 4).map((cred, idx) => (
+                  <div key={cred.code || cred.title || idx} className="cred-mini-badge">
                     <span className="cred-issuer">{cred.issuer}</span>
                     <span className="cred-name">{cred.title}</span>
                   </div>
