@@ -94,7 +94,7 @@ export default function Navbar({ onOpenResume }) {
           </div>
 
           <button 
-            className="btn btn-secondary btn-sm"
+            className="nav-btn nav-btn-cv"
             onClick={onOpenResume}
             title="View full printable CV"
           >
@@ -112,7 +112,7 @@ export default function Navbar({ onOpenResume }) {
             {theme === 'dark' ? <Sun size={16} className="text-amber" /> : <Moon size={16} className="text-cyan" />}
           </button>
 
-          <Link to="/contact" className="btn btn-primary btn-sm">
+          <Link to="/contact" className="nav-btn nav-btn-connect">
             <span>Connect</span>
           </Link>
 
@@ -148,13 +148,13 @@ export default function Navbar({ onOpenResume }) {
             })}
             <div className="mobile-menu-divider"></div>
             <button 
-              className="btn btn-secondary btn-full mb-2"
+              className="nav-btn nav-btn-cv btn-full mb-2"
               onClick={toggleTheme}
             >
               {theme === 'dark' ? <><Sun size={16} className="text-amber" /> <span>Light Mode</span></> : <><Moon size={16} className="text-cyan" /> <span>Dark Mode</span></>}
             </button>
             <button 
-              className="btn btn-primary btn-full"
+              className="nav-btn nav-btn-connect btn-full"
               onClick={() => {
                 setMobileMenuOpen(false);
                 onOpenResume();

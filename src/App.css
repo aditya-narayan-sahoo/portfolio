@@ -112,6 +112,54 @@
   gap: 0.75rem;
 }
 
+/* Standardized Pill Action Buttons in Navbar */
+.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  height: 36px;
+  padding: 0 1.15rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  border-radius: var(--radius-full) !important;
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: all var(--transition-fast);
+  box-sizing: border-box;
+}
+
+.nav-btn-cv {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  backdrop-filter: blur(8px);
+}
+
+.nav-btn-cv:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(56, 189, 248, 0.4);
+  color: var(--color-cyan);
+  transform: translateY(-1px);
+}
+
+.nav-btn-connect {
+  background: #38bdf8;
+  border-color: #38bdf8;
+  color: #090e17;
+  font-weight: 600;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.25);
+}
+
+.nav-btn-connect:hover {
+  background: #7dd3fc;
+  border-color: #7dd3fc;
+  box-shadow: 0 0 18px rgba(56, 189, 248, 0.45);
+  transform: translateY(-1px);
+}
+
 .nav-status {
   display: none;
 }
@@ -2048,17 +2096,18 @@
   color: var(--text-primary);
   width: 36px;
   height: 36px;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-full) !important;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all var(--transition-fast);
+  box-sizing: border-box;
 }
 
 .btn-theme-toggle:hover {
   background: rgba(255, 255, 255, 0.12);
-  border-color: var(--border-hover);
+  border-color: rgba(56, 189, 248, 0.4);
   transform: translateY(-1px);
 }
 
@@ -2083,6 +2132,45 @@ html.light .nav-links {
 
 html.light .nav-link:hover {
   background: rgba(15, 23, 42, 0.05);
+}
+
+html.light .nav-btn-cv {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  color: #1e293b;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+html.light .nav-btn-cv:hover {
+  background: #f8fafc;
+  border-color: #0f62fe;
+  color: #0f62fe;
+}
+
+html.light .nav-btn-connect {
+  background: #0f62fe;
+  border-color: #0f62fe;
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(15, 98, 254, 0.25);
+}
+
+html.light .nav-btn-connect:hover {
+  background: #0353e9;
+  border-color: #0353e9;
+  box-shadow: 0 4px 14px rgba(15, 98, 254, 0.35);
+}
+
+html.light .btn-theme-toggle {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  color: #1e293b;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+html.light .btn-theme-toggle:hover {
+  background: #f8fafc;
+  border-color: #0f62fe;
 }
 
 html.light .nav-link.active {
@@ -2891,6 +2979,568 @@ html.light .nav-title-link {
 html.light .footer-nav-link:hover {
   color: #0f62fe;
 }
+
+/* ==========================================================================
+   ANIMATED GLOWING SCROLL TIMELINE & TRAVELING DOT
+   ========================================================================== */
+
+/* Stepper Strip at top of Experience */
+.career-trajectory-stepper {
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+}
+
+.stepper-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stepper-meta-text {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-cyan);
+  text-transform: uppercase;
+}
+
+.stepper-stages {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.stepper-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  color: var(--text-secondary);
+}
+
+.stepper-chip:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--color-cyan);
+  color: var(--text-primary);
+}
+
+.stepper-chip.active {
+  background: rgba(56, 189, 248, 0.15);
+  border-color: #38bdf8;
+  color: var(--text-primary);
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.2);
+}
+
+.stepper-num {
+  font-size: 0.7rem;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-cyan);
+}
+
+.stepper-chip.active .stepper-num {
+  background: #38bdf8;
+  color: #090e17;
+}
+
+.stepper-label-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.stepper-chip-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.stepper-chip-sub {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  line-height: 1.1;
+}
+
+.stepper-arrow {
+  color: var(--text-muted);
+  opacity: 0.6;
+}
+
+/* Timeline Container with Vertical Glowing Spine */
+.experience-timeline-container,
+.education-timeline-container {
+  position: relative;
+  padding: 1rem 0 3rem;
+}
+
+/* The Spine Rail and Illuminated Fill */
+.timeline-spine-wrapper {
+  position: absolute;
+  top: 2rem;
+  bottom: 2rem;
+  left: 20px;
+  width: 2px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.timeline-spine-rail {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-full);
+}
+
+.timeline-spine-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  background: linear-gradient(180deg, #0f62fe 0%, #38bdf8 70%, #a855f7 100%);
+  border-radius: var(--radius-full);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.6), 0 0 20px rgba(15, 98, 254, 0.4);
+  transition: height 0.12s ease-out;
+}
+
+/* Traveling Glowing Neon Pulse Dot */
+.timeline-traveler-dot {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 18px;
+  height: 18px;
+  border-radius: var(--radius-full);
+  z-index: 10;
+  transition: top 0.12s ease-out;
+  pointer-events: none;
+}
+
+.dot-inner-core {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  background: #38bdf8;
+  border-radius: var(--radius-full);
+  box-shadow: 0 0 12px #38bdf8, 0 0 24px rgba(56, 189, 248, 0.8);
+}
+
+.dot-pulse-ring {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-full);
+  border: 2px solid rgba(56, 189, 248, 0.8);
+  animation: travelerPulse 1.8s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+}
+
+@keyframes travelerPulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+/* Timeline Cards List & Row Layout */
+.timeline-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+  margin-left: 58px;
+}
+
+.experience-timeline-row,
+.education-timeline-row {
+  position: relative;
+  transition: transform var(--transition-normal);
+}
+
+/* Spine Node Markers on Each Row */
+.timeline-node-marker {
+  position: absolute;
+  top: 2rem;
+  left: -58px;
+  width: 42px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  z-index: 3;
+}
+
+.node-marker-ring {
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radius-full);
+  background: var(--bg-main);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  margin-left: 7px;
+}
+
+.node-marker-core {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.node-marker-connector {
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* Active Node State */
+.timeline-node-marker.marker-active .node-marker-ring {
+  border-color: #38bdf8;
+  background: #0b1220;
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.5), inset 0 0 8px rgba(56, 189, 248, 0.3);
+  transform: scale(1.15);
+}
+
+.timeline-node-marker.marker-active .node-marker-core {
+  background: #38bdf8;
+  box-shadow: 0 0 10px #38bdf8;
+}
+
+.timeline-node-marker.marker-active .node-marker-connector {
+  background: linear-gradient(90deg, #38bdf8, rgba(56, 189, 248, 0.3));
+}
+
+/* Active Card Highlight */
+.experience-card.active-highlight-card,
+.edu-card.active-highlight-card {
+  border-color: rgba(56, 189, 248, 0.35);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45), 0 0 20px rgba(56, 189, 248, 0.08);
+}
+
+.exp-inview-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--color-cyan);
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  padding: 0.15rem 0.55rem;
+  border-radius: var(--radius-full);
+}
+
+.inview-pulse {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: #38bdf8;
+  box-shadow: 0 0 6px #38bdf8;
+  animation: pulseDot 1.5s infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+/* Foundation Tags in Education */
+.edu-foundation-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.foundation-pill {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--color-cyan);
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+}
+
+/* Light Mode Overrides for Timeline */
+html.light .career-trajectory-stepper {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+html.light .stepper-meta-text {
+  color: #0f62fe;
+}
+
+html.light .stepper-chip {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #475569;
+}
+
+html.light .stepper-chip:hover {
+  background: #f1f5f9;
+  border-color: #0f62fe;
+  color: #090e17;
+}
+
+html.light .stepper-chip.active {
+  background: rgba(15, 98, 254, 0.1);
+  border-color: #0f62fe;
+  color: #0f62fe;
+  box-shadow: 0 2px 8px rgba(15, 98, 254, 0.15);
+}
+
+html.light .stepper-num {
+  background: #e2e8f0;
+  color: #0f62fe;
+}
+
+html.light .stepper-chip.active .stepper-num {
+  background: #0f62fe;
+  color: #ffffff;
+}
+
+html.light .timeline-spine-rail {
+  background: #e2e8f0;
+}
+
+html.light .timeline-spine-fill {
+  background: linear-gradient(180deg, #0f62fe 0%, #0043ce 70%, #6929c4 100%);
+  box-shadow: 0 0 10px rgba(15, 98, 254, 0.4);
+}
+
+html.light .timeline-traveler-dot .dot-inner-core {
+  background: #0f62fe;
+  box-shadow: 0 0 10px #0f62fe, 0 0 18px rgba(15, 98, 254, 0.6);
+}
+
+html.light .timeline-traveler-dot .dot-pulse-ring {
+  border-color: rgba(15, 98, 254, 0.7);
+}
+
+html.light .node-marker-ring {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+html.light .timeline-node-marker.marker-active .node-marker-ring {
+  border-color: #0f62fe;
+  background: #f0f6ff;
+  box-shadow: 0 0 12px rgba(15, 98, 254, 0.35);
+}
+
+html.light .timeline-node-marker.marker-active .node-marker-core {
+  background: #0f62fe;
+  box-shadow: 0 0 8px #0f62fe;
+}
+
+html.light .timeline-node-marker.marker-active .node-marker-connector {
+  background: linear-gradient(90deg, #0f62fe, rgba(15, 98, 254, 0.2));
+}
+
+html.light .experience-card.active-highlight-card,
+html.light .edu-card.active-highlight-card {
+  border-color: rgba(15, 98, 254, 0.4);
+  box-shadow: 0 4px 20px rgba(15, 98, 254, 0.12);
+}
+
+html.light .exp-inview-pill {
+  color: #0f62fe;
+  background: rgba(15, 98, 254, 0.08);
+  border-color: rgba(15, 98, 254, 0.3);
+}
+
+html.light .inview-pulse {
+  background: #0f62fe;
+  box-shadow: 0 0 6px #0f62fe;
+}
+
+html.light .foundation-pill {
+  color: #0f62fe;
+  background: rgba(15, 98, 254, 0.06);
+  border-color: rgba(15, 98, 254, 0.2);
+}
+
+/* ==========================================================================
+   MULTI-SCREEN RESPONSIVENESS ENHANCEMENTS (Mobile, Tablet, Desktop)
+   ========================================================================== */
+
+@media (max-width: 992px) {
+  .career-trajectory-stepper {
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: var(--radius-lg);
+    gap: 0.75rem;
+  }
+
+  .stepper-stages {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+    scrollbar-width: none;
+  }
+
+  .stepper-stages::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .timeline-spine-wrapper {
+    left: 14px;
+  }
+
+  .timeline-cards-list {
+    margin-left: 42px;
+    gap: 1.5rem;
+  }
+
+  .timeline-node-marker {
+    left: -42px;
+    width: 32px;
+  }
+
+  .node-marker-ring {
+    width: 22px;
+    height: 22px;
+    margin-left: 3px;
+  }
+
+  .node-marker-ring .node-icon {
+    width: 11px;
+    height: 11px;
+  }
+
+  .node-marker-core {
+    width: 6px;
+    height: 6px;
+  }
+
+  .experience-card,
+  .edu-card {
+    padding: 1.35rem;
+  }
+
+  .exp-role,
+  .edu-degree {
+    font-size: 1.15rem;
+  }
+
+  .exp-meta-items {
+    gap: 0.65rem;
+    font-size: 0.8rem;
+  }
+
+  /* Standardized Navbar actions for tablets/phones */
+  .nav-btn {
+    height: 36px;
+    padding: 0 0.85rem;
+    font-size: 0.8rem;
+  }
+
+  .nav-actions {
+    gap: 0.45rem;
+  }
+
+  .mobile-menu .nav-btn {
+    height: 42px;
+    font-size: 0.875rem;
+    width: 100%;
+  }
+
+  /* Grid optimizations */
+  .experience-teaser-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .teaser-highlights-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .timeline-spine-wrapper {
+    left: 10px;
+  }
+
+  .timeline-cards-list {
+    margin-left: 32px;
+  }
+
+  .timeline-node-marker {
+    left: -32px;
+    width: 26px;
+  }
+
+  .node-marker-ring {
+    width: 18px;
+    height: 18px;
+    margin-left: 1px;
+  }
+
+  .node-marker-core {
+    width: 5px;
+    height: 5px;
+  }
+
+  .exp-card-header {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .btn-toggle-expand {
+    align-self: flex-end;
+  }
+
+  .stepper-chip {
+    padding: 0.25rem 0.6rem;
+    font-size: 0.75rem;
+  }
+
+  .hero-headline {
+    font-size: 1.95rem;
+  }
+
+  .nav-brand .brand-role {
+    display: none;
+  }
+}
+
 
 
 
