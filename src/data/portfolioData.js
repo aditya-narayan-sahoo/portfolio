@@ -7,8 +7,8 @@ export const personalInfo = {
   email: "adityasahoo@ibm.com",
   phone: "+91 7873529958",
   location: "India",
-  github: "https://github.com",
-  linkedin: "https://linkedin.com",
+  github: "https://github.com/aditya-narayan-sahoo",
+  linkedin: "https://www.linkedin.com/in/aditya-narayan-sahoo/",
   summary: `I am an Applied AI Specialist and Cloud & Data Engineer at IBM supporting business-critical cloud data engineering platforms and enterprise applications across global markets. My core expertise spans Matillion ETL, Snowflake, Databricks, and AWS, focusing on high-availability data pipelines, L2 production incident management, root cause analysis (RCA), and automated operational excellence. With a software engineering foundation across ReactJS, Node.js, and Java, I bridge cloud-native reliability with AI-first workflows to engineer scalable, high-throughput solutions.`,
   metrics: [
     { label: "Global Platform Availability", value: "99.98%", description: "L2 enterprise SLA adherence across global markets" },

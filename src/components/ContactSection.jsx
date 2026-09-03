@@ -135,7 +135,7 @@ export default function ContactSection({ onOpenResume }) {
               <span className="links-title">Professional Profiles & Resume</span>
               <div className="links-row">
                 <a 
-                  href="https://linkedin.com" 
+                  href={personalInfo.linkedin} 
                   target="_blank" 
                   rel="noreferrer"
                   className="social-btn glass-panel"
@@ -146,7 +146,7 @@ export default function ContactSection({ onOpenResume }) {
                 </a>
 
                 <a 
-                  href="https://github.com" 
+                  href={personalInfo.github} 
                   target="_blank" 
                   rel="noreferrer"
                   className="social-btn glass-panel"

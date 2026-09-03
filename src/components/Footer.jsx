@@ -13,8 +13,8 @@ export default function Footer() {
       <div className="container">
         <div className="footer-top-row">
           <div className="footer-brand">
-            <div className="brand-avatar">
-              <span className="brand-code">&gt;_</span>
+            <div className="brand-monogram">
+              <span>AS</span>
             </div>
             <div>
               <span className="footer-brand-name">{personalInfo.name}</span>
@@ -28,6 +28,8 @@ export default function Footer() {
             <Link to="/experience" className="footer-nav-link">Experience</Link>
             <Link to="/credentials" className="footer-nav-link">Credentials</Link>
             <Link to="/contact" className="footer-nav-link">Contact</Link>
+            <a href={personalInfo.linkedin} target="_blank" rel="noreferrer" className="footer-nav-link">LinkedIn ↗</a>
+            <a href={personalInfo.github} target="_blank" rel="noreferrer" className="footer-nav-link">GitHub ↗</a>
           </div>
 
           <div className="footer-status-box">
