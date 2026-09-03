@@ -9,15 +9,12 @@ import {
   Award, 
   Mail, 
   FileText, 
-  Menu, 
-  X,
   Sun,
   Moon
 } from 'lucide-react';
 
 export default function Navbar({ onOpenResume }) {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('theme') || 'dark';
   });
@@ -107,57 +104,8 @@ export default function Navbar({ onOpenResume }) {
           <Link to="/contact" className="nav-btn nav-btn-connect">
             <span>Connect</span>
           </Link>
-
-          {/* Mobile Menu Button */}
-          <button 
-            className="mobile-toggle"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle navigation menu"
-          >
-            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
         </div>
       </div>
-
-      {/* Mobile Menu Dropdown */}
-      {mobileMenuOpen && (
-        <div className="mobile-menu">
-          <div className="mobile-menu-links">
-            {navLinks.map((link) => {
-              const Icon = link.icon;
-              return (
-                <NavLink
-                  key={link.name}
-                  to={link.to}
-                  end={link.end}
-                  className={({ isActive }) => `mobile-link ${isActive ? 'active' : ''}`}
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <Icon size={18} />
-                  <span>{link.name}</span>
-                </NavLink>
-              );
-            })}
-            <div className="mobile-menu-divider"></div>
-            <button 
-              className="nav-btn nav-btn-cv btn-full mb-2"
-              onClick={toggleTheme}
-            >
-              {theme === 'dark' ? <><Sun size={16} className="text-amber" /> <span>Light Mode</span></> : <><Moon size={16} className="text-cyan" /> <span>Dark Mode</span></>}
-            </button>
-            <button 
-              className="nav-btn nav-btn-connect btn-full"
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenResume();
-              }}
-            >
-              <FileText size={16} />
-              <span>View Full Resume</span>
-            </button>
-          </div>
-        </div>
-      )}
     </nav>
   );
 }

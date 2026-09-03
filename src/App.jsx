@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import MobileNavDock from './components/MobileNavDock';
 import Footer from './components/Footer';
 import ResumeModal from './components/ResumeModal';
 import ScrollToTop from './components/ScrollToTop';
@@ -58,6 +59,9 @@ export default function App() {
           isOpen={isResumeOpen} 
           onClose={() => setIsResumeOpen(false)} 
         />
+
+        {/* Mobile Floating Bottom Navigation Dock */}
+        <MobileNavDock />
       </div>
     </BrowserRouter>
   );

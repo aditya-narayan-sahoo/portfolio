@@ -5,21 +5,67 @@ import { personalInfo, experiences, credentials } from '../data/portfolioData';
 import { 
   ArrowRight, 
   Layers, 
-  Activity, 
+  Briefcase, 
   Award, 
   Mail, 
   CheckCircle2, 
   Cpu, 
   ShieldCheck, 
-  ExternalLink,
   ChevronRight,
   Database,
-  Sparkles
+  Sparkles,
+  TrendingUp,
+  ExternalLink,
+  Zap
 } from 'lucide-react';
 
 export default function HomePage({ onOpenResume }) {
-  const currentRole = experiences[0];
-  const previousRole = experiences[1];
+  const portalCards = [
+    {
+      id: 'pipeline',
+      tag: 'Flagship Architecture',
+      icon: Layers,
+      color: 'text-cyan',
+      title: 'Multi-Cloud Data Pipeline & RCA Simulator',
+      description: 'Interactive node-by-node pipeline inspector demonstrating Matillion ETL, AWS S3, Snowflake DWH, and Databricks Lakehouse flows with an incident triage simulator.',
+      metrics: ['12 TB+ Daily Ingestion', '99.98% SLA Availability', 'Automated RCA'],
+      link: '/pipeline',
+      cta: 'Launch Architecture Visualizer'
+    },
+    {
+      id: 'experience',
+      tag: 'Enterprise Journey',
+      icon: Briefcase,
+      color: 'text-blue',
+      title: 'Enterprise Experience & Seniority Velocity',
+      description: 'Track record as Applied AI Specialist at IBM India and enterprise client lead for Philip Morris International, driving reliability and 35% MTTR reduction.',
+      metrics: ['IBM Applied AI Specialist', 'Philip Morris Intl Lead', 'B.Tech Honors'],
+      link: '/experience',
+      cta: 'Explore Career Journey & Education'
+    },
+    {
+      id: 'credentials',
+      tag: 'Accreditations',
+      icon: Award,
+      color: 'text-purple',
+      title: 'Technical Proficiencies & Certified Badges',
+      description: 'Certified in Databricks, AWS, Matillion ETL, and Snowflake, backed by hands-on proficiencies in enterprise orchestration, Python, SQL, and watsonx GenAI.',
+      metrics: ['Databricks Certified', 'AWS & Snowflake', 'GenAI Foundations'],
+      link: '/credentials',
+      cta: 'Browse Skills & Certifications'
+    },
+    {
+      id: 'contact',
+      tag: 'Communication Portal',
+      icon: Mail,
+      color: 'text-emerald',
+      title: 'Direct Collaboration & Contact Suite',
+      description: 'Reach out directly for enterprise cloud engineering initiatives, Applied AI workflows, or access a printable ATS-friendly resume.',
+      metrics: ['adityasahoo@ibm.com', '< 24h Response Time', 'Printable CV'],
+      link: '/contact',
+      cta: 'Open Contact Portal'
+    }
+  ];
 
   return (
     <div className="page-transition">
@@ -27,172 +73,65 @@ export default function HomePage({ onOpenResume }) {
       <Hero onOpenResume={onOpenResume} />
 
       <div className="container">
-        {/* Section 2: Architecture & Pipeline Showcase Teaser */}
-        <section className="home-teaser-section">
+        {/* Executive Dashboard Section */}
+        <section className="dashboard-section">
           <div className="section-header">
             <div className="section-eyebrow">
-              <Layers size={14} />
-              <span>FLAGSHIP ARCHITECTURE</span>
+              <Zap size={14} />
+              <span>EXECUTIVE PORTFOLIO DASHBOARD</span>
             </div>
-            <h2 className="section-title">Multi-Cloud Data Pipeline & Incident Simulator</h2>
+            <h2 className="section-title">Explore Dedicated Practice Areas</h2>
             <p className="section-subtitle">
-              Enterprise ETL orchestration, petabyte-scale lakehouse ingestion, and live telemetry RCA simulator.
+              Select any practice area below to launch its dedicated deep-dive page, live telemetry visualizers, 
+              and verified credential matrices.
             </p>
           </div>
 
-          <div className="teaser-card glass-panel highlight-border">
-            <div className="teaser-card-body">
-              <div className="teaser-badges">
-                <span className="badge badge-accent">Interactive Visualizer</span>
-                <span className="badge badge-blue">Snowflake & Databricks</span>
-                <span className="badge badge-purple">Matillion ETL & Maia AI</span>
-              </div>
-              <h3 className="teaser-title">Live Pipeline Telemetry & Incident RCA Simulation</h3>
-              <p className="teaser-desc">
-                Explore an interactive node-by-node pipeline walkthrough showing data flows from source systems through
-                AWS S3 landing zones, Matillion transformation jobs, Snowflake enterprise data warehouse, and Databricks AI analytics.
-                Test our interactive Root-Cause Analysis (RCA) simulation to see live incident triage in action.
-              </p>
+          <div className="dashboard-portal-grid">
+            {portalCards.map((card) => {
+              const Icon = card.icon;
+              return (
+                <div key={card.id} className="portal-card glass-panel">
+                  <div className="portal-card-top">
+                    <div className="portal-tag-group">
+                      <span className={`portal-icon ${card.color}`}>
+                        <Icon size={20} />
+                      </span>
+                      <span className="portal-tag">{card.tag}</span>
+                    </div>
+                  </div>
 
-              <div className="teaser-highlights-grid">
-                <div className="mini-feature">
-                  <span className="mini-icon text-cyan"><Database size={18} /></span>
-                  <div>
-                    <strong>Petabyte Processing</strong>
-                    <p>Sub-minute batch runs across distributed clusters</p>
-                  </div>
-                </div>
-                <div className="mini-feature">
-                  <span className="mini-icon text-blue"><ShieldCheck size={18} /></span>
-                  <div>
-                    <strong>L2 Telemetry & RCA</strong>
-                    <p>Automated root-cause diagnostics & fast recovery</p>
-                  </div>
-                </div>
-                <div className="mini-feature">
-                  <span className="mini-icon text-purple"><Sparkles size={18} /></span>
-                  <div>
-                    <strong>watsonx & Maia AI</strong>
-                    <p>AI-assisted query tuning & automated alert routing</p>
-                  </div>
-                </div>
-              </div>
+                  <h3 className="portal-title">{card.title}</h3>
+                  <p className="portal-desc">{card.description}</p>
 
-              <div className="teaser-action-row">
-                <Link to="/pipeline" className="btn btn-primary">
-                  <span>Open Interactive Visualizer & Simulator</span>
-                  <ArrowRight size={16} />
-                </Link>
-              </div>
-            </div>
+                  <div className="portal-metrics-pills">
+                    {card.metrics.map((m, mIdx) => (
+                      <span key={mIdx} className="portal-pill">
+                        <CheckCircle2 size={12} className="text-cyan" />
+                        <span>{m}</span>
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="portal-card-footer">
+                    <Link to={card.link} className="btn btn-primary btn-full portal-cta-btn">
+                      <span>{card.cta}</span>
+                      <ArrowRight size={15} />
+                    </Link>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </section>
 
-        {/* Section 3: Enterprise Experience Teaser */}
-        <section className="home-teaser-section">
-          <div className="section-header">
-            <div className="section-eyebrow">
-              <Activity size={14} />
-              <span>ENTERPRISE ENGAGEMENTS</span>
-            </div>
-            <h2 className="section-title">Applied AI & Reliability Engineering at IBM</h2>
-            <p className="section-subtitle">
-              Supporting global mission-critical platforms with strict SLA adherence and incident response excellence.
-            </p>
-          </div>
-
-          <div className="experience-teaser-grid">
-            <div className="exp-teaser-card glass-panel">
-              <div className="exp-teaser-header">
-                <div>
-                  <span className="role-company-badge">IBM India</span>
-                  <h3 className="exp-teaser-role">{currentRole.role}</h3>
-                  <span className="exp-teaser-period">{currentRole.period}</span>
-                </div>
-                <span className="status-pill">Active Engagement</span>
-              </div>
-              <p className="exp-teaser-desc">{currentRole.summary}</p>
-              <ul className="exp-teaser-points">
-                {(currentRole?.bullets || []).slice(0, 3).map((pt, i) => (
-                  <li key={i}>
-                    <CheckCircle2 size={14} className="text-cyan point-icon" />
-                    <span>{pt}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="exp-teaser-footer">
-                <Link to="/experience" className="link-arrow">
-                  <span>View Full Experience Details</span>
-                  <ChevronRight size={16} />
-                </Link>
-              </div>
-            </div>
-
-            <div className="exp-teaser-card glass-panel">
-              <div className="exp-teaser-header">
-                <div>
-                  <span className="role-company-badge">Client Engagement</span>
-                  <h3 className="exp-teaser-role">{previousRole?.role}</h3>
-                  <span className="exp-teaser-period">{previousRole?.company}</span>
-                </div>
-                <span className="status-pill status-dim">Global Market</span>
-              </div>
-              <p className="exp-teaser-desc">{previousRole?.summary}</p>
-              <ul className="exp-teaser-points">
-                {(previousRole?.bullets || []).slice(0, 3).map((pt, i) => (
-                  <li key={i}>
-                    <CheckCircle2 size={14} className="text-cyan point-icon" />
-                    <span>{pt}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="exp-teaser-footer">
-                <Link to="/experience" className="link-arrow">
-                  <span>View Full Experience Details</span>
-                  <ChevronRight size={16} />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Section 4: Skills & Credentials Snapshot */}
-        <section className="home-teaser-section">
-          <div className="credentials-teaser-banner glass-panel">
-            <div className="cred-teaser-content">
-              <div className="section-eyebrow">
-                <Award size={14} />
-                <span>CREDENTIALS & TECH STACK</span>
-              </div>
-              <h3 className="cred-teaser-title">Certified In Cloud Data Architectures & Applied AI</h3>
-              <p className="cred-teaser-desc">
-                Holding accredited certifications in Databricks, AWS, Matillion ETL, and Snowflake, backed by deep operational competencies in enterprise orchestration and software reliability.
-              </p>
-              <div className="cred-teaser-badges">
-                {credentials.slice(0, 4).map((cred, idx) => (
-                  <div key={cred.code || cred.title || idx} className="cred-mini-badge">
-                    <span className="cred-issuer">{cred.issuer}</span>
-                    <span className="cred-name">{cred.title}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-4">
-                <Link to="/credentials" className="btn btn-secondary">
-                  <span>View All Skills & Certifications</span>
-                  <ArrowRight size={16} />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Section 5: Fast Contact Banner */}
+        {/* Fast Action Collaboration Strip */}
         <section className="home-teaser-section mb-6">
           <div className="home-cta-card glass-panel">
             <div>
               <h3 className="cta-heading">Ready to discuss platform engineering or AI workflows?</h3>
               <p className="cta-sub">
-                Reach out directly via IBM internal email or through the dedicated contact suite.
+                Connect directly via IBM internal email or review the full printable resume.
               </p>
             </div>
             <div className="cta-buttons">
