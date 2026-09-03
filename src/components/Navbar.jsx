@@ -59,12 +59,12 @@ export default function Navbar({ onOpenResume }) {
       <div className="container nav-container">
         {/* Brand */}
         <Link to="/" className="nav-brand" onClick={() => setMobileMenuOpen(false)}>
-          <div className="brand-avatar">
-            <span className="brand-code">&gt;_</span>
+          <div className="brand-monogram">
+            <span>AS</span>
           </div>
           <div className="brand-text">
             <span className="brand-name">Aditya N. Sahoo</span>
-            <span className="brand-role">Cloud & Data / Applied AI @ IBM</span>
+            <span className="brand-role">Applied AI & Cloud @ IBM</span>
           </div>
         </Link>
 
@@ -88,9 +88,11 @@ export default function Navbar({ onOpenResume }) {
 
         {/* Header Actions */}
         <div className="nav-actions">
-          <div className="status-pill nav-status" title="Platform telemetry active">
-            <span className="status-dot"></span>
-            <span>L2 Operations Live</span>
+          <div className="nav-live-beacon" title="Platform telemetry active (99.98% SLA)">
+            <span className="beacon-pulse-dot">
+              <span className="beacon-pulse-wave"></span>
+            </span>
+            <span className="beacon-text">L2 Operations Live</span>
           </div>
 
           <button 
