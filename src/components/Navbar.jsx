@@ -55,7 +55,7 @@ export default function Navbar({ onOpenResume }) {
     <nav className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
       <div className="container nav-container">
         {/* Brand */}
-        <Link to="/" className="nav-brand" onClick={() => setMobileMenuOpen(false)}>
+        <Link to="/" className="nav-brand">
           <div className="brand-monogram">
             <span>AS</span>
           </div>
