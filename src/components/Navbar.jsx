@@ -62,10 +62,7 @@ export default function Navbar({ onOpenResume }) {
           <div className="brand-monogram">
             <span>AS</span>
           </div>
-          <div className="brand-text">
-            <span className="brand-name">Aditya N. Sahoo</span>
-            <span className="brand-role">Applied AI & Cloud @ IBM</span>
-          </div>
+          <span className="brand-name">Aditya N. Sahoo</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -88,13 +85,6 @@ export default function Navbar({ onOpenResume }) {
 
         {/* Header Actions */}
         <div className="nav-actions">
-          <div className="nav-live-beacon" title="Platform telemetry active (99.98% SLA)">
-            <span className="beacon-pulse-dot">
-              <span className="beacon-pulse-wave"></span>
-            </span>
-            <span className="beacon-text">L2 Operations Live</span>
-          </div>
-
           <button 
             className="nav-btn nav-btn-cv"
             onClick={onOpenResume}
