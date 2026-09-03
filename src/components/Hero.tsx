@@ -12,7 +12,11 @@ import {
   Cpu
 } from 'lucide-react';
 
-export default function Hero({ onOpenResume }) {
+interface HeroProps {
+  onOpenResume: () => void;
+}
+
+export default function Hero({ onOpenResume }: HeroProps) {
   return (
     <section className="hero-section">
       <div className="container">

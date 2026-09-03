@@ -19,7 +19,7 @@ import {
   Server
 } from 'lucide-react';
 
-const iconMap = {
+const iconMap: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
   DatabaseZap: Database,
   Workflow: Workflow,
   Cloud: Cloud,
@@ -29,15 +29,15 @@ const iconMap = {
 };
 
 export default function PipelineVisualizer() {
-  const [selectedNodeId, setSelectedNodeId] = useState('matillion');
-  const [activeScenarioId, setActiveScenarioId] = useState(null);
-  const [isResolving, setIsResolving] = useState(false);
-  const [resolvedScenarios, setResolvedScenarios] = useState({});
+  const [selectedNodeId, setSelectedNodeId] = useState<string>('matillion');
+  const [activeScenarioId, setActiveScenarioId] = useState<string | null>(null);
+  const [isResolving, setIsResolving] = useState<boolean>(false);
+  const [resolvedScenarios, setResolvedScenarios] = useState<Record<string, boolean>>({});
 
   const activeScenario = incidentScenarios.find(s => s.id === activeScenarioId);
-  const selectedNode = pipelineNodes.find(n => n.id === selectedNodeId);
+  const selectedNode = pipelineNodes.find(n => n.id === selectedNodeId) || pipelineNodes[0];
 
-  const handleSelectScenario = (scenarioId) => {
+  const handleSelectScenario = (scenarioId: string) => {
     setActiveScenarioId(scenarioId);
     const scenario = incidentScenarios.find(s => s.id === scenarioId);
     if (scenario) {
@@ -72,7 +72,7 @@ export default function PipelineVisualizer() {
     setSelectedNodeId('matillion');
   };
 
-  const isCurrentScenarioResolved = activeScenario && resolvedScenarios[activeScenario.id];
+  const isCurrentScenarioResolved = !!(activeScenario && resolvedScenarios[activeScenario.id]);
 
   return (
     <section id="pipeline" className="section pipeline-section">

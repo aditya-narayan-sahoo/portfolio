@@ -2,7 +2,12 @@ import React from 'react';
 import { personalInfo, experiences, skillCategories, credentials, education } from '../data/portfolioData';
 import { X, Printer, Download, Mail, Phone, MapPin, Building2, ExternalLink } from 'lucide-react';
 
-export default function ResumeModal({ isOpen, onClose }) {
+interface ResumeModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
   if (!isOpen) return null;
 
   const handlePrint = () => {

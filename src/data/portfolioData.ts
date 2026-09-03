@@ -1,4 +1,14 @@
-export const personalInfo = {
+import { 
+  PersonalInfo, 
+  PipelineNode, 
+  IncidentScenario, 
+  Experience, 
+  SkillCategory, 
+  Credential, 
+  Education 
+} from '../types/portfolio';
+
+export const personalInfo: PersonalInfo = {
   name: "Aditya Narayan Sahoo",
   title: "Cloud & Data Engineering Specialist | Applied AI Specialist",
   tagline: "Architecting mission-critical cloud data pipelines, resilient enterprise platforms, and AI-enabled workflows at scale.",
@@ -27,7 +37,7 @@ export const personalInfo = {
   ]
 };
 
-export const pipelineNodes = [
+export const pipelineNodes: PipelineNode[] = [
   {
     id: "ingestion",
     name: "Source Ingestion",
@@ -96,7 +106,7 @@ export const pipelineNodes = [
   }
 ];
 
-export const incidentScenarios = [
+export const incidentScenarios: IncidentScenario[] = [
   {
     id: "pipeline-backpressure",
     title: "Scenario 1: High-Volume ETL Ingestion Lock Contention",
@@ -159,7 +169,7 @@ export const incidentScenarios = [
   }
 ];
 
-export const experiences = [
+export const experiences: Experience[] = [
   {
     role: "Applied AI Specialist",
     company: "IBM India Pvt. Ltd.",
@@ -232,7 +242,7 @@ export const experiences = [
   }
 ];
 
-export const skillCategories = [
+export const skillCategories: SkillCategory[] = [
   {
     id: "cloud-data",
     name: "Cloud & Data Engineering",
@@ -308,7 +318,7 @@ export const skillCategories = [
   }
 ];
 
-export const credentials = [
+export const credentials: Credential[] = [
   {
     title: "IBM watsonx Essentials",
     issuer: "IBM",
@@ -423,7 +433,7 @@ export const credentials = [
   }
 ];
 
-export const education = [
+export const education: Education[] = [
   {
     degree: "Bachelors of Technology in Computer Science and Engineering",
     institution: "Institute of Technical Education and Research (ITER), Siksha 'O' Anusandhan University",

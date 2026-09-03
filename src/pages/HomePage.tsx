@@ -19,7 +19,11 @@ import {
   Zap
 } from 'lucide-react';
 
-export default function HomePage({ onOpenResume }) {
+interface HomePageProps {
+  onOpenResume: () => void;
+}
+
+export default function HomePage({ onOpenResume }: HomePageProps) {
   const portalCards = [
     {
       id: 'pipeline',

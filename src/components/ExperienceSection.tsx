@@ -17,13 +17,13 @@ import {
 
 export default function ExperienceSection() {
   // Default first 2 expanded
-  const [expandedIndices, setExpandedIndices] = useState({ 0: true, 1: true });
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const [activeItemIndex, setActiveItemIndex] = useState(0);
-  const timelineRef = useRef(null);
-  const cardRefs = useRef([]);
+  const [expandedIndices, setExpandedIndices] = useState<Record<number, boolean>>({ 0: true, 1: true });
+  const [scrollProgress, setScrollProgress] = useState<number>(0);
+  const [activeItemIndex, setActiveItemIndex] = useState<number>(0);
+  const timelineRef = useRef<HTMLDivElement | null>(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  const toggleIndex = (index) => {
+  const toggleIndex = (index: number) => {
     setExpandedIndices(prev => ({
       ...prev,
       [index]: !prev[index]
@@ -32,12 +32,13 @@ export default function ExperienceSection() {
 
   // Scroll listener for glowing spine fill and traveling neon dot
   useEffect(() => {
-    let animationFrameId;
+    let animationFrameId: number | null = null;
 
     const handleScroll = () => {
       if (!timelineRef.current) return;
 
       animationFrameId = requestAnimationFrame(() => {
+        if (!timelineRef.current) return;
         const timelineRect = timelineRef.current.getBoundingClientRect();
         const windowHeight = window.innerHeight;
 
@@ -79,9 +80,10 @@ export default function ExperienceSection() {
     };
   }, []);
 
-  const scrollToCard = (index) => {
-    if (cardRefs.current[index]) {
-      cardRefs.current[index].scrollIntoView({ behavior: 'smooth', block: 'center' });
+  const scrollToCard = (index: number) => {
+    const target = cardRefs.current[index];
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
       // Ensure expanded
       setExpandedIndices(prev => ({ ...prev, [index]: true }));
     }
@@ -174,7 +176,7 @@ export default function ExperienceSection() {
               return (
                 <div 
                   key={index} 
-                  ref={el => cardRefs.current[index] = el}
+                  ref={(el) => { cardRefs.current[index] = el; }}
                   className={`experience-timeline-row ${isActiveNode ? 'row-active' : ''}`}
                 >
                   {/* Spine Node Marker */}
@@ -258,7 +260,7 @@ export default function ExperienceSection() {
                         <div className="exp-skills-row">
                           <span className="exp-skills-label">Applied Technologies:</span>
                           <div className="exp-tags">
-                            {exp.skills.map((skill, sIdx) => (
+                            {exp.skills?.map((skill, sIdx) => (
                               <span key={sIdx} className="skill-pill-sm">
                                 {skill}
                               </span>

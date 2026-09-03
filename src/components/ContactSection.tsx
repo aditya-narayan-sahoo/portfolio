@@ -25,7 +25,11 @@ const GitHubIcon = () => (
   </svg>
 );
 
-export default function ContactSection({ onOpenResume }) {
+interface ContactSectionProps {
+  onOpenResume?: () => void;
+}
+
+export default function ContactSection({ onOpenResume }: ContactSectionProps) {
   const [copied, setCopied] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -42,7 +46,7 @@ export default function ContactSection({ onOpenResume }) {
     setTimeout(() => setCopied(false), 2500);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
@@ -240,7 +244,7 @@ export default function ContactSection({ onOpenResume }) {
                   <textarea
                     id="message"
                     required
-                    rows="4"
+                    rows={4}
                     placeholder="Describe your technical inquiry, project context, or collaboration opportunity..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}

@@ -13,7 +13,11 @@ import {
   Moon
 } from 'lucide-react';
 
-export default function Navbar({ onOpenResume }) {
+interface NavbarProps {
+  onOpenResume: () => void;
+}
+
+export default function Navbar({ onOpenResume }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('theme') || 'dark';

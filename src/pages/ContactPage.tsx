@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom';
 import ContactSection from '../components/ContactSection';
 import { Mail, ArrowLeft, Home, FileText, CheckCircle2 } from 'lucide-react';
 
-export default function ContactPage({ onOpenResume }) {
+interface ContactPageProps {
+  onOpenResume?: () => void;
+}
+
+export default function ContactPage({ onOpenResume }: ContactPageProps) {
   return (
     <div className="page-transition page-container">
       <div className="container">

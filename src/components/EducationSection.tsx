@@ -3,16 +3,17 @@ import { education } from '../data/portfolioData';
 import { GraduationCap, Calendar, MapPin, BookOpen, Award, CheckCircle2 } from 'lucide-react';
 
 export default function EducationSection() {
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const timelineRef = useRef(null);
+  const [scrollProgress, setScrollProgress] = useState<number>(0);
+  const timelineRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    let animationFrameId;
+    let animationFrameId: number | null = null;
 
     const handleScroll = () => {
       if (!timelineRef.current) return;
 
       animationFrameId = requestAnimationFrame(() => {
+        if (!timelineRef.current) return;
         const rect = timelineRef.current.getBoundingClientRect();
         const windowHeight = window.innerHeight;
         const triggerPoint = windowHeight * 0.6;
