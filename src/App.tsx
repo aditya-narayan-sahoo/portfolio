@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import MobileNavDock from './components/MobileNavDock';
 import Footer from './components/Footer';
@@ -17,7 +17,7 @@ export default function App() {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <ScrollToTop />
       <div className="portfolio-app">
         {/* Persistent Global Navigation */}
@@ -63,6 +63,6 @@ export default function App() {
         {/* Mobile Floating Bottom Navigation Dock */}
         <MobileNavDock />
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
