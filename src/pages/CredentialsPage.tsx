@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SkillsSection from '../components/SkillsSection';
 import CredentialsSection from '../components/CredentialsSection';
-import { Award, ArrowLeft, ArrowRight, Cpu, ShieldCheck } from 'lucide-react';
+import { Award, ArrowLeft, ArrowRight } from 'lucide-react';
 
 export default function CredentialsPage() {
   return (
@@ -12,34 +12,22 @@ export default function CredentialsPage() {
         <div className="page-breadcrumb">
           <Link to="/" className="breadcrumb-link">
             <ArrowLeft size={14} />
-            <span>Back to Overview</span>
+            <span>Back to Home</span>
           </Link>
           <span className="breadcrumb-sep">/</span>
-          <span className="breadcrumb-current">Skills & Credentials</span>
+          <span className="breadcrumb-current">Skills</span>
         </div>
 
         {/* Page Header */}
         <div className="page-header">
           <div className="section-eyebrow">
             <Award size={14} />
-            <span>VERIFIED CAPABILITIES & CERTIFICATIONS</span>
+            <span>SKILLS</span>
           </div>
-          <h1 className="page-title">Technical Proficiencies & Industry Certifications</h1>
+          <h1 className="page-title">Skills and certs</h1>
           <p className="page-subtitle">
-            Comprehensive skill matrix spanning cloud data infrastructure, data warehousing, AI/ML engineering, 
-            and operational observability, backed by recognized vendor certifications.
+            Tools I use and certs I've earned.
           </p>
-
-          <div className="page-header-meta">
-            <div className="header-meta-item">
-              <span className="meta-label">CERTIFIED BY</span>
-              <span className="meta-val">Databricks • AWS • Matillion • Snowflake</span>
-            </div>
-            <div className="header-meta-item">
-              <span className="meta-label">CORE FOCUS</span>
-              <span className="meta-val">Lakehouse, DWH & Applied GenAI</span>
-            </div>
-          </div>
         </div>
 
         {/* Skills Section */}
@@ -55,16 +43,16 @@ export default function CredentialsPage() {
         {/* Next Route Navigation Bar */}
         <div className="page-nav-footer glass-panel">
           <div className="page-nav-col">
-            <span className="nav-sub">Previous Section</span>
+            <span className="nav-sub">Previous</span>
             <Link to="/experience" className="nav-title-link">
               <ArrowLeft size={16} />
-              <span>Enterprise Experience</span>
+              <span>Work</span>
             </Link>
           </div>
           <div className="page-nav-col text-right">
-            <span className="nav-sub">Next Section</span>
+            <span className="nav-sub">Next</span>
             <Link to="/contact" className="nav-title-link">
-              <span>Contact & Connect</span>
+              <span>Contact</span>
               <ArrowRight size={16} />
             </Link>
           </div>

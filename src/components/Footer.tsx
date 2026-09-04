@@ -1,7 +1,6 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { personalInfo } from '../data/portfolioData';
-import { ArrowUp, Terminal, Shield, Heart } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -23,20 +22,17 @@ export default function Footer() {
           </div>
 
           <div className="footer-nav-links">
-            <Link to="/" className="footer-nav-link">Overview</Link>
-            <Link to="/pipeline" className="footer-nav-link">Architecture</Link>
-            <Link to="/experience" className="footer-nav-link">Experience</Link>
-            <Link to="/credentials" className="footer-nav-link">Credentials</Link>
+            <Link to="/" className="footer-nav-link">Home</Link>
+            <Link to="/pipeline" className="footer-nav-link">Pipeline</Link>
+            <Link to="/experience" className="footer-nav-link">Work</Link>
+            <Link to="/credentials" className="footer-nav-link">Skills</Link>
             <Link to="/contact" className="footer-nav-link">Contact</Link>
             <a href={personalInfo.linkedin} target="_blank" rel="noreferrer" className="footer-nav-link">LinkedIn ↗</a>
             <a href={personalInfo.github} target="_blank" rel="noreferrer" className="footer-nav-link">GitHub ↗</a>
           </div>
 
           <div className="footer-status-box">
-            <div className="status-pill">
-              <span className="status-dot"></span>
-              <span>All Systems Operational (99.98% SLA)</span>
-            </div>
+            <span className="footer-tag">{personalInfo.email}</span>
             <button 
               onClick={scrollToTop} 
               className="btn-back-to-top"
@@ -53,16 +49,14 @@ export default function Footer() {
 
         <div className="footer-bottom-row">
           <div className="footer-copy">
-            <span>© {new Date().getFullYear()} {personalInfo.name}. All rights reserved.</span>
-            <span className="footer-subcopy">Built with modern React, pure CSS, and cloud platform precision.</span>
+            <span>© {new Date().getFullYear()} {personalInfo.name}.</span>
           </div>
 
           <div className="footer-tags">
-            <span className="footer-tag">Matillion ETL</span>
+            <span className="footer-tag">Matillion</span>
             <span className="footer-tag">Snowflake</span>
             <span className="footer-tag">Databricks</span>
-            <span className="footer-tag">AWS Cloud</span>
-            <span className="footer-tag">IBM watsonx</span>
+            <span className="footer-tag">AWS</span>
           </div>
         </div>
       </div>

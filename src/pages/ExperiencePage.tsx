@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ExperienceSection from '../components/ExperienceSection';
 import EducationSection from '../components/EducationSection';
-import { Briefcase, ArrowLeft, ArrowRight, Activity, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { Briefcase, ArrowLeft, ArrowRight } from 'lucide-react';
 
 export default function ExperiencePage() {
   return (
@@ -12,7 +12,7 @@ export default function ExperiencePage() {
         <div className="page-breadcrumb">
           <Link to="/" className="breadcrumb-link">
             <ArrowLeft size={14} />
-            <span>Back to Overview</span>
+            <span>Back to Home</span>
           </Link>
           <span className="breadcrumb-sep">/</span>
           <span className="breadcrumb-current">Enterprise Experience</span>
@@ -22,26 +22,21 @@ export default function ExperiencePage() {
         <div className="page-header">
           <div className="section-eyebrow">
             <Briefcase size={14} />
-            <span>PROFESSIONAL TRACK RECORD</span>
+            <span>WORK</span>
           </div>
-          <h1 className="page-title">Enterprise Experience & Global Engagements</h1>
+          <h1 className="page-title">Work and school</h1>
           <p className="page-subtitle">
-            Reliability engineering, cloud orchestration, and applied AI workflows delivered at IBM India 
-            and client assignments including Philip Morris International.
+            IBM roles and client work for PMI, plus education.
           </p>
 
           <div className="page-header-meta">
             <div className="header-meta-item">
-              <span className="meta-label">CURRENT ROLE</span>
-              <span className="meta-val">Applied AI Specialist @ IBM India</span>
+              <span className="meta-label">NOW</span>
+              <span className="meta-val">Applied AI Specialist, IBM India</span>
             </div>
             <div className="header-meta-item">
-              <span className="meta-label">KEY ENGAGEMENT</span>
-              <span className="meta-val">Philip Morris International (Global)</span>
-            </div>
-            <div className="header-meta-item">
-              <span className="meta-label">PLATFORM AVAILABILITY</span>
-              <span className="meta-val">99.98% Strict SLA Compliance</span>
+              <span className="meta-label">CLIENT</span>
+              <span className="meta-val">Philip Morris International</span>
             </div>
           </div>
         </div>
@@ -59,16 +54,16 @@ export default function ExperiencePage() {
         {/* Next Route Navigation Bar */}
         <div className="page-nav-footer glass-panel">
           <div className="page-nav-col">
-            <span className="nav-sub">Previous Section</span>
+            <span className="nav-sub">Previous</span>
             <Link to="/pipeline" className="nav-title-link">
               <ArrowLeft size={16} />
-              <span>Pipeline & Architecture</span>
+              <span>Pipeline</span>
             </Link>
           </div>
           <div className="page-nav-col text-right">
-            <span className="nav-sub">Next Section</span>
+            <span className="nav-sub">Next</span>
             <Link to="/credentials" className="nav-title-link">
-              <span>Skills & Credentials</span>
+              <span>Skills</span>
               <ArrowRight size={16} />
             </Link>
           </div>

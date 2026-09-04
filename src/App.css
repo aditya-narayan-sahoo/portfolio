@@ -564,14 +564,10 @@
 
 .pulse-healthy {
   background: var(--accent-emerald);
-  box-shadow: 0 0 10px var(--accent-emerald);
-  animation: pulse-glow 2s infinite ease-in-out;
 }
 
 .pulse-alert {
   background: var(--accent-rose);
-  box-shadow: 0 0 12px var(--accent-rose);
-  animation: pulse-glow 0.8s infinite ease-in-out;
 }
 
 .pipeline-hint {
@@ -625,14 +621,7 @@
 
 .pipeline-node.node-incident {
   border-color: var(--accent-rose);
-  box-shadow: var(--shadow-glow-rose);
   background: rgba(43, 14, 24, 0.9);
-  animation: border-blink 1s infinite alternate;
-}
-
-@keyframes border-blink {
-  from { border-color: var(--accent-rose); }
-  to { border-color: rgba(244, 63, 94, 0.3); }
 }
 
 .node-icon-wrapper {
@@ -721,14 +710,6 @@
   height: 4px;
   background: var(--accent-cyan);
   border-radius: 2px;
-  animation: flow-packet 1.4s infinite linear;
-}
-
-@keyframes flow-packet {
-  0% { left: 0%; opacity: 0; }
-  20% { opacity: 1; }
-  80% { opacity: 1; }
-  100% { left: 100%; opacity: 0; }
 }
 
 .pipeline-connector.connector-alert .connector-line::after {

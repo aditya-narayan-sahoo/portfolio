@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ContactSection from '../components/ContactSection';
-import { Mail, ArrowLeft, Home, FileText, CheckCircle2 } from 'lucide-react';
+import { Mail, ArrowLeft, Home } from 'lucide-react';
 
 interface ContactPageProps {
   onOpenResume?: () => void;
@@ -15,36 +15,27 @@ export default function ContactPage({ onOpenResume }: ContactPageProps) {
         <div className="page-breadcrumb">
           <Link to="/" className="breadcrumb-link">
             <ArrowLeft size={14} />
-            <span>Back to Overview</span>
+            <span>Back to Home</span>
           </Link>
           <span className="breadcrumb-sep">/</span>
-          <span className="breadcrumb-current">Contact & Communications</span>
+          <span className="breadcrumb-current">Contact</span>
         </div>
 
         {/* Page Header */}
         <div className="page-header">
           <div className="section-eyebrow">
             <Mail size={14} />
-            <span>GET IN TOUCH</span>
+            <span>CONTACT</span>
           </div>
-          <h1 className="page-title">Direct Communication & Collaboration</h1>
+          <h1 className="page-title">Contact</h1>
           <p className="page-subtitle">
-            Connect directly for enterprise cloud data engineering initiatives, Applied AI platform workflows, 
-            or production reliability reviews.
+            Email is best. I usually reply within a day or two.
           </p>
 
           <div className="page-header-meta">
             <div className="header-meta-item">
-              <span className="meta-label">PRIMARY INBOX</span>
+              <span className="meta-label">EMAIL</span>
               <span className="meta-val">adityasahoo@ibm.com</span>
-            </div>
-            <div className="header-meta-item">
-              <span className="meta-label">RESPONSE TIME</span>
-              <span className="meta-val">Typically within 24 business hours</span>
-            </div>
-            <div className="header-meta-item">
-              <span className="meta-label">RESUME ACCESS</span>
-              <span className="meta-val">Printable ATS-Friendly CV Available</span>
             </div>
           </div>
         </div>
@@ -57,16 +48,16 @@ export default function ContactPage({ onOpenResume }: ContactPageProps) {
         {/* Next Route Navigation Bar */}
         <div className="page-nav-footer glass-panel">
           <div className="page-nav-col">
-            <span className="nav-sub">Previous Section</span>
+            <span className="nav-sub">Previous</span>
             <Link to="/credentials" className="nav-title-link">
               <ArrowLeft size={16} />
-              <span>Skills & Credentials</span>
+              <span>Skills</span>
             </Link>
           </div>
           <div className="page-nav-col text-right">
-            <span className="nav-sub">Return Home</span>
+            <span className="nav-sub">Return</span>
             <Link to="/" className="nav-title-link">
-              <span>Overview & Hero</span>
+              <span>Home</span>
               <Home size={16} />
             </Link>
           </div>

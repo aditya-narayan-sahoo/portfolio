@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { personalInfo } from '../data/portfolioData';
 import { 
   ArrowRight, 
-  Terminal, 
   ShieldCheck, 
   Database, 
   Sparkles, 
@@ -33,32 +32,29 @@ export default function Hero({ onOpenResume }: HeroProps) {
 
         {/* Main Headline */}
         <h1 className="hero-headline">
-          Engineering Resilient <br />
-          <span className="gradient-text">Cloud Data Platforms</span> & <br />
-          AI-First Operations.
+          I'm Aditya. I work on <br />
+          <span className="gradient-text">data pipelines</span> that stay up.
         </h1>
 
         {/* Subtitle / Narrative */}
         <p className="hero-summary">
-          Specializing in enterprise data engineering platforms, high-throughput pipeline orchestration, 
-          and mission-critical L2 production operations across <span className="highlight-tag">Matillion ETL</span>, 
-          <span className="highlight-tag">Snowflake</span>, <span className="highlight-tag">Databricks</span>, and 
-          <span className="highlight-tag">AWS</span>. Applying AI-first paradigms and full-stack software reliability 
-          to support global market operations with 99.9%+ availability.
+          I'm a Data Engineer at IBM, currently supporting PMI's data platform.
+          I work with Matillion, Snowflake, Databricks, and AWS — mostly pipeline support,
+          incident triage, and small fixes that prevent repeats.
         </p>
 
         {/* Action Buttons */}
         <div className="hero-actions">
           <Link to="/pipeline" className="btn btn-primary">
-            <span>Explore Pipeline Visualizer</span>
+            <span>See pipeline examples</span>
             <ArrowRight size={16} />
           </Link>
           <Link to="/experience" className="btn btn-secondary">
             <Activity size={16} />
-            <span>Enterprise Experience</span>
+            <span>Work history</span>
           </Link>
           <button onClick={onOpenResume} className="btn btn-outline-cyan">
-            <span>View Full CV</span>
+            <span>View CV</span>
           </button>
         </div>
 
@@ -75,14 +71,14 @@ export default function Hero({ onOpenResume }: HeroProps) {
 
         {/* Quick Tech Highlights Bar */}
         <div className="hero-tech-strip">
-          <span className="tech-strip-title">CORE PLATFORMS & RUNTIMES:</span>
+          <span className="tech-strip-title">I USE:</span>
           <div className="tech-pills">
-            <span className="tech-pill"><Cloud size={13} /> AWS Cloud</span>
-            <span className="tech-pill"><Database size={13} /> Matillion ETL & Maia</span>
-            <span className="tech-pill"><Database size={13} /> Snowflake DWH</span>
-            <span className="tech-pill"><Cpu size={13} /> Databricks Lakehouse</span>
-            <span className="tech-pill"><Sparkles size={13} /> IBM watsonx / GenAI</span>
-            <span className="tech-pill"><ShieldCheck size={13} /> L2 Incident Management</span>
+            <span className="tech-pill"><Cloud size={13} /> AWS</span>
+            <span className="tech-pill"><Database size={13} /> Matillion</span>
+            <span className="tech-pill"><Database size={13} /> Snowflake</span>
+            <span className="tech-pill"><Cpu size={13} /> Databricks</span>
+            <span className="tech-pill"><Sparkles size={13} /> watsonx</span>
+            <span className="tech-pill"><ShieldCheck size={13} /> L2 support</span>
           </div>
         </div>
       </div>

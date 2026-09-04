@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { 
-  Terminal, 
   Home,
   Layers, 
   Briefcase, 
-  Cpu, 
   Award, 
   Mail, 
   FileText, 
@@ -48,10 +46,10 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
   }, []);
 
   const navLinks = [
-    { name: 'Overview', to: '/', icon: Home, end: true },
-    { name: 'Architecture', to: '/pipeline', icon: Layers },
-    { name: 'Experience', to: '/experience', icon: Briefcase },
-    { name: 'Credentials', to: '/credentials', icon: Award },
+    { name: 'Home', to: '/', icon: Home, end: true },
+    { name: 'Pipeline', to: '/pipeline', icon: Layers },
+    { name: 'Work', to: '/experience', icon: Briefcase },
+    { name: 'Skills', to: '/credentials', icon: Award },
     { name: 'Contact', to: '/contact', icon: Mail }
   ];
 
@@ -89,10 +87,10 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
           <button 
             className="nav-btn nav-btn-cv"
             onClick={onOpenResume}
-            title="View full printable CV"
+            title="View CV"
           >
             <FileText size={14} />
-            <span>View CV</span>
+            <span>CV</span>
           </button>
 
           {/* Dark/Light Theme Toggle */}

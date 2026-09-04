@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PipelineVisualizer from '../components/PipelineVisualizer';
-import { Layers, ArrowLeft, ArrowRight, ShieldCheck, Cpu, Database, Activity } from 'lucide-react';
+import { Layers, ArrowLeft, ArrowRight } from 'lucide-react';
 
 export default function PipelinePage() {
   return (
@@ -21,26 +21,21 @@ export default function PipelinePage() {
         <div className="page-header">
           <div className="section-eyebrow">
             <Layers size={14} />
-            <span>INTERACTIVE ARCHITECTURE DEEP-DIVE</span>
+            <span>PIPELINE</span>
           </div>
-          <h1 className="page-title">Enterprise Data Pipeline & Incident Telemetry</h1>
+          <h1 className="page-title">Pipeline examples</h1>
           <p className="page-subtitle">
-            Interactive visualization of multi-cloud data flows across Matillion ETL, AWS S3, Snowflake, and Databricks, 
-            complete with live node telemetry inspector and interactive Incident Root-Cause Analysis (RCA) simulator.
+            Simplified diagrams with sample numbers, plus three short incident write-ups.
           </p>
 
           <div className="page-header-meta">
             <div className="header-meta-item">
-              <span className="meta-label">ARCHITECTURE TYPE</span>
-              <span className="meta-val">Hybrid Multi-Cloud Lakehouse</span>
+              <span className="meta-label">STACK</span>
+              <span className="meta-val">Matillion, S3, Snowflake, Databricks</span>
             </div>
             <div className="header-meta-item">
-              <span className="meta-label">INGESTION THROUGHPUT</span>
-              <span className="meta-val">&gt; 12 TB Daily Delta Ingestion</span>
-            </div>
-            <div className="header-meta-item">
-              <span className="meta-label">INCIDENT RECOVERY</span>
-              <span className="meta-val">35% Faster MTTR via Automated RCA</span>
+              <span className="meta-label">DATA</span>
+              <span className="meta-val">Samples for illustration</span>
             </div>
           </div>
         </div>
@@ -56,13 +51,13 @@ export default function PipelinePage() {
             <span className="nav-sub">Previous</span>
             <Link to="/" className="nav-title-link">
               <ArrowLeft size={16} />
-              <span>Overview & Hero</span>
+              <span>Home</span>
             </Link>
           </div>
           <div className="page-nav-col text-right">
-            <span className="nav-sub">Next Section</span>
+            <span className="nav-sub">Next</span>
             <Link to="/experience" className="nav-title-link">
-              <span>Enterprise Experience</span>
+              <span>Work history</span>
               <ArrowRight size={16} />
             </Link>
           </div>

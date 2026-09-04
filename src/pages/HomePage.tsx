@@ -1,22 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
-import { personalInfo, experiences, credentials } from '../data/portfolioData';
 import { 
   ArrowRight, 
   Layers, 
   Briefcase, 
   Award, 
-  Mail, 
-  CheckCircle2, 
-  Cpu, 
-  ShieldCheck, 
-  ChevronRight,
-  Database,
-  Sparkles,
-  TrendingUp,
-  ExternalLink,
-  Zap
+  Mail
 } from 'lucide-react';
 
 interface HomePageProps {
@@ -27,47 +17,43 @@ export default function HomePage({ onOpenResume }: HomePageProps) {
   const portalCards = [
     {
       id: 'pipeline',
-      tag: 'Flagship Architecture',
+      tag: 'Pipeline',
       icon: Layers,
       color: 'text-cyan',
-      title: 'Multi-Cloud Data Pipeline & RCA Simulator',
-      description: 'Interactive node-by-node pipeline inspector demonstrating Matillion ETL, AWS S3, Snowflake DWH, and Databricks Lakehouse flows with an incident triage simulator.',
-      metrics: ['12 TB+ Daily Ingestion', '99.98% SLA Availability', 'Automated RCA'],
+      title: 'Pipeline examples',
+      description: 'How a typical Matillion → S3 → Snowflake → Databricks flow fits together, with three incident write-ups.',
       link: '/pipeline',
-      cta: 'Launch Architecture Visualizer'
+      cta: 'See examples'
     },
     {
       id: 'experience',
-      tag: 'Enterprise Journey',
+      tag: 'Work',
       icon: Briefcase,
       color: 'text-blue',
-      title: 'Enterprise Experience & Seniority Velocity',
-      description: 'Track record as Applied AI Specialist at IBM India and enterprise client lead for Philip Morris International, driving reliability and 35% MTTR reduction.',
-      metrics: ['IBM Applied AI Specialist', 'Philip Morris Intl Lead', 'B.Tech Honors'],
+      title: 'Work history',
+      description: 'IBM roles from associate engineer to AI specialist, plus client work for PMI.',
       link: '/experience',
-      cta: 'Explore Career Journey & Education'
+      cta: 'Work history'
     },
     {
       id: 'credentials',
-      tag: 'Accreditations',
+      tag: 'Skills',
       icon: Award,
       color: 'text-purple',
-      title: 'Technical Proficiencies & Certified Badges',
-      description: 'Certified in Databricks, AWS, Matillion ETL, and Snowflake, backed by hands-on proficiencies in enterprise orchestration, Python, SQL, and watsonx GenAI.',
-      metrics: ['Databricks Certified', 'AWS & Snowflake', 'GenAI Foundations'],
+      title: 'Skills and certs',
+      description: 'Tools I use and certs I hold — IBM, Azure, Matillion, Red Hat.',
       link: '/credentials',
-      cta: 'Browse Skills & Certifications'
+      cta: 'Skills and certs'
     },
     {
       id: 'contact',
-      tag: 'Communication Portal',
+      tag: 'Contact',
       icon: Mail,
       color: 'text-emerald',
-      title: 'Direct Collaboration & Contact Suite',
-      description: 'Reach out directly for enterprise cloud engineering initiatives, Applied AI workflows, or access a printable ATS-friendly resume.',
-      metrics: ['adityasahoo@ibm.com', '< 24h Response Time', 'Printable CV'],
+      title: 'Contact',
+      description: 'Email is best. CV available as PDF.',
       link: '/contact',
-      cta: 'Open Contact Portal'
+      cta: 'Contact'
     }
   ];
 
@@ -77,17 +63,11 @@ export default function HomePage({ onOpenResume }: HomePageProps) {
       <Hero onOpenResume={onOpenResume} />
 
       <div className="container">
-        {/* Executive Dashboard Section */}
         <section className="dashboard-section">
           <div className="section-header">
-            <div className="section-eyebrow">
-              <Zap size={14} />
-              <span>EXECUTIVE PORTFOLIO DASHBOARD</span>
-            </div>
-            <h2 className="section-title">Explore Dedicated Practice Areas</h2>
+            <h2 className="section-title">Sections</h2>
             <p className="section-subtitle">
-              Select any practice area below to launch its dedicated deep-dive page, live telemetry visualizers, 
-              and verified credential matrices.
+              Four short pages. Pick one.
             </p>
           </div>
 
@@ -108,15 +88,6 @@ export default function HomePage({ onOpenResume }: HomePageProps) {
                   <h3 className="portal-title">{card.title}</h3>
                   <p className="portal-desc">{card.description}</p>
 
-                  <div className="portal-metrics-pills">
-                    {card.metrics.map((m, mIdx) => (
-                      <span key={mIdx} className="portal-pill">
-                        <CheckCircle2 size={12} className="text-cyan" />
-                        <span>{m}</span>
-                      </span>
-                    ))}
-                  </div>
-
                   <div className="portal-card-footer">
                     <Link to={card.link} className="btn btn-primary btn-full portal-cta-btn">
                       <span>{card.cta}</span>
@@ -129,19 +100,18 @@ export default function HomePage({ onOpenResume }: HomePageProps) {
           </div>
         </section>
 
-        {/* Fast Action Collaboration Strip */}
         <section className="home-teaser-section mb-6">
           <div className="home-cta-card glass-panel">
             <div>
-              <h3 className="cta-heading">Ready to discuss platform engineering or AI workflows?</h3>
+              <h3 className="cta-heading">Want to talk?</h3>
               <p className="cta-sub">
-                Connect directly via IBM internal email or review the full printable resume.
+                Email me. I usually reply within a day or two.
               </p>
             </div>
             <div className="cta-buttons">
               <Link to="/contact" className="btn btn-primary">
                 <Mail size={16} />
-                <span>Get in Touch</span>
+                <span>Contact</span>
               </Link>
               <button onClick={onOpenResume} className="btn btn-outline-cyan">
                 <span>View CV</span>

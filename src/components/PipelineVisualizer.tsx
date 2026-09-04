@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { pipelineNodes, incidentScenarios } from '../data/portfolioData';
-import confetti from 'canvas-confetti';
 import { 
   Database, 
   Workflow, 
@@ -8,13 +7,11 @@ import {
   Layers, 
   Cpu, 
   Activity, 
-  AlertTriangle, 
   CheckCircle2, 
   Terminal, 
   RefreshCw, 
   Zap, 
   ShieldAlert, 
-  ChevronRight,
   Info,
   Server
 } from 'lucide-react';
@@ -52,19 +49,7 @@ export default function PipelineVisualizer() {
     setTimeout(() => {
       setIsResolving(false);
       setResolvedScenarios(prev => ({ ...prev, [activeScenario.id]: true }));
-
-      // Trigger celebratory confetti
-      try {
-        confetti({
-          particleCount: 75,
-          spread: 70,
-          origin: { y: 0.7 },
-          colors: ['#38bdf8', '#10b981', '#ffffff']
-        });
-      } catch (e) {
-        // Fallback gracefully
-      }
-    }, 900);
+    }, 600);
   };
 
   const handleReset = () => {
@@ -81,12 +66,13 @@ export default function PipelineVisualizer() {
         <div className="section-header">
           <div className="section-tag">
             <Zap size={14} />
-            <span>Interactive Cloud Architecture</span>
+            <span>Pipeline example</span>
           </div>
-          <h2 className="section-title">Enterprise Data Pipeline & Incident Telemetry</h2>
+          <h2 className="section-title">How the pipeline fits together</h2>
           <p className="section-subtitle">
-            An interactive representation of the multi-cloud data engineering platform I support at IBM for 
-            global enterprise clients. Inspect nodes, observe throughput metrics, and simulate real-time production incident triage.
+            A simplified view of the stack I support — Matillion, AWS, Snowflake, Databricks.
+            Numbers below are samples to show the shape of the flow, not live production data.
+            The three examples are past incident patterns, shortened.
           </p>
         </div>
 
@@ -95,12 +81,12 @@ export default function PipelineVisualizer() {
           <div className="simulator-header">
             <div className="simulator-title">
               <ShieldAlert size={18} className="text-accent" />
-              <span>Simulate Enterprise L2 Production Incident & Root Cause Analysis (RCA)</span>
+              <span>Three incident examples — pick one</span>
             </div>
             {activeScenarioId && (
               <button onClick={handleReset} className="btn btn-secondary btn-sm">
                 <RefreshCw size={13} />
-                <span>Reset Pipeline State</span>
+                <span>Reset</span>
               </button>
             )}
           </div>
@@ -119,12 +105,12 @@ export default function PipelineVisualizer() {
                   <div className="scenario-btn-top">
                     <span className="scenario-tag">{scen.severity}</span>
                     {isResolved ? (
-                      <span className="status-badge-resolved"><CheckCircle2 size={12} /> Resolved</span>
+                      <span className="status-badge-resolved"><CheckCircle2 size={12} /> Read</span>
                     ) : (
                       <span className="scenario-component">{scen.component}</span>
                     )}
                   </div>
-                  <span className="scenario-btn-title">{scen.title.split(': ')[1] || scen.title}</span>
+                  <span className="scenario-btn-title">{scen.title}</span>
                 </button>
               );
             })}
@@ -138,13 +124,13 @@ export default function PipelineVisualizer() {
               <span className={`flow-pulse ${activeScenario && !isCurrentScenarioResolved ? 'pulse-alert' : 'pulse-healthy'}`}></span>
               <span className="flow-status-text">
                 {activeScenario && !isCurrentScenarioResolved ? (
-                  <strong className="text-amber">ALERT: Incident Active on [{activeScenario.affectedNode.toUpperCase()}] — L2 Triage Required</strong>
+                  <strong className="text-amber">Viewing: {activeScenario.title}</strong>
                 ) : (
-                  <strong className="text-emerald">All Pipeline Nodes Operational • 99.98% SLA Nominal</strong>
+                  <strong className="text-emerald">Sample data — not live</strong>
                 )}
               </span>
             </div>
-            <span className="pipeline-hint">Click any node to inspect telemetry & runbooks</span>
+            <span className="pipeline-hint">Click a box for details</span>
           </div>
 
           {/* Node Grid */}
@@ -193,7 +179,7 @@ export default function PipelineVisualizer() {
           <div className="node-inspector-card glass-panel">
             <div className="card-top-row">
               <div className="inspector-heading">
-                <span className="card-badge">TELEMETRY & RUNBOOK</span>
+                <span className="card-badge">WHAT IT DOES</span>
                 <h3>{selectedNode.name}</h3>
                 <span className="inspector-role">{selectedNode.role}</span>
               </div>
@@ -201,12 +187,12 @@ export default function PipelineVisualizer() {
                 {activeScenario && activeScenario.affectedNode === selectedNode.id && !isCurrentScenarioResolved ? (
                   <span className="status-pill status-alert">
                     <span className="status-dot"></span>
-                    <span>DEGRADED</span>
+                    <span>IN EXAMPLE</span>
                   </span>
                 ) : (
                   <span className="status-pill">
                     <span className="status-dot"></span>
-                    <span>HEALTHY</span>
+                    <span>SAMPLE</span>
                   </span>
                 )}
               </div>
@@ -216,26 +202,26 @@ export default function PipelineVisualizer() {
 
             <div className="inspector-stats-grid">
               <div className="stat-box">
-                <span className="stat-label">Response Latency</span>
+                <span className="stat-label">Latency (sample)</span>
                 <span className="stat-value">{selectedNode.latency}</span>
               </div>
               <div className="stat-box">
-                <span className="stat-label">Sustained Velocity</span>
+                <span className="stat-label">Throughput (sample)</span>
                 <span className="stat-value">{selectedNode.throughput}</span>
               </div>
               <div className="stat-box">
-                <span className="stat-label">Core Runtime</span>
+                <span className="stat-label">Tech</span>
                 <span className="stat-value font-mono">{selectedNode.tech.split(' / ')[0]}</span>
               </div>
               <div className="stat-box">
-                <span className="stat-label">L2 Support Scope</span>
-                <span className="stat-value text-emerald">24/7 Monitored</span>
+                <span className="stat-label">Support</span>
+                <span className="stat-value text-emerald">L2 covered</span>
               </div>
             </div>
 
             <div className="inspector-actions-footer">
               <span className="font-mono text-muted text-xs">
-                NODE_UID: sys.{selectedNode.id}.cluster.pmi-global.net
+                Sample values for illustration.
               </span>
             </div>
           </div>
@@ -245,7 +231,7 @@ export default function PipelineVisualizer() {
             <div className="console-header">
               <div className="console-title">
                 <Terminal size={16} />
-                <span>Production L2 Incident Console & RCA Terminal</span>
+                <span>Incident notes</span>
               </div>
               {activeScenario && (
                 <span className="console-severity-pill">{activeScenario.severity}</span>
@@ -257,8 +243,8 @@ export default function PipelineVisualizer() {
                 {/* Live Simulated Logs */}
                 <div className="terminal-logs">
                   <div className="terminal-logs-bar">
-                    <span>SYSTEM DIAGNOSTIC STREAM</span>
-                    <span>SESSION: ADITYA_L2_TRIAGE</span>
+                    <span>SHORTENED LOG PATTERN</span>
+                    <span>SAMPLE</span>
                   </div>
                   <div className="logs-content">
                     {activeScenario.logs.map((log, i) => (
@@ -273,14 +259,14 @@ export default function PipelineVisualizer() {
                 <div className="rca-breakdown">
                   <div className="rca-title">
                     <Info size={15} className="text-cyan" />
-                    <strong>Root Cause Analysis (RCA):</strong>
+                    <strong>What caused it:</strong>
                   </div>
                   <p className="rca-text">{activeScenario.rca}</p>
                 </div>
 
                 {/* Step-by-Step Runbook Actions */}
                 <div className="resolution-steps">
-                  <span className="steps-title">Engineered Remediation & Runbook Actions:</span>
+                  <span className="steps-title">What I did:</span>
                   <ul>
                     {activeScenario.resolution.map((step, idx) => (
                       <li key={idx} className="step-item">
@@ -296,7 +282,7 @@ export default function PipelineVisualizer() {
                   {isCurrentScenarioResolved ? (
                     <div className="resolved-notice">
                       <CheckCircle2 size={18} className="text-emerald" />
-                      <span>Pipeline fully restored to optimal throughput. Zero data loss verified.</span>
+                      <span>Marked as read. Fix steps above.</span>
                     </div>
                   ) : (
                     <button
@@ -307,12 +293,12 @@ export default function PipelineVisualizer() {
                       {isResolving ? (
                         <>
                           <RefreshCw size={14} className="animate-spin" />
-                          <span>Applying Automated Runbook Hotfix...</span>
+                          <span>Marking…</span>
                         </>
                       ) : (
                         <>
                           <CheckCircle2 size={15} />
-                          <span>Execute L2 Remediation & Restore SLA</span>
+                          <span>Mark as read</span>
                         </>
                       )}
                     </button>
@@ -322,14 +308,13 @@ export default function PipelineVisualizer() {
             ) : (
               <div className="console-empty-state">
                 <Activity size={36} className="text-muted mb-2" />
-                <h4>No Active Incident Simulated</h4>
+                <h4>No example selected</h4>
                 <p>
-                  Select one of the 3 incident scenarios above to simulate live L2 production support, 
-                  diagnostic log triage, and root cause analysis.
+                  Pick one of the three above to see symptoms, cause, and fix.
                 </p>
                 <div className="empty-buttons">
                   <button onClick={() => handleSelectScenario('pipeline-backpressure')} className="btn btn-secondary btn-sm">
-                    Simulate ETL Backpressure
+                    Show first example
                   </button>
                 </div>
               </div>

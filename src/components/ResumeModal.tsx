@@ -1,6 +1,6 @@
 import React from 'react';
 import { personalInfo, experiences, skillCategories, credentials, education } from '../data/portfolioData';
-import { X, Printer, Download, Mail, Phone, MapPin, Building2, ExternalLink } from 'lucide-react';
+import { X, Printer, Mail, Phone, MapPin } from 'lucide-react';
 
 interface ResumeModalProps {
   isOpen: boolean;

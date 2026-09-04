@@ -10,8 +10,8 @@ import {
 
 export const personalInfo: PersonalInfo = {
   name: "Aditya Narayan Sahoo",
-  title: "Cloud & Data Engineering Specialist | Applied AI Specialist",
-  tagline: "Architecting mission-critical cloud data pipelines, resilient enterprise platforms, and AI-enabled workflows at scale.",
+  title: "Data Engineer | Applied AI Specialist",
+  tagline: "I keep cloud data pipelines running and fix them when they break.",
   company: "IBM India Pvt. Ltd.",
   assignment: "Philip Morris International",
   email: "adityasahoo@ibm.com",
@@ -19,12 +19,12 @@ export const personalInfo: PersonalInfo = {
   location: "India",
   github: "https://github.com/aditya-narayan-sahoo",
   linkedin: "https://www.linkedin.com/in/aditya-narayan-sahoo/",
-  summary: `I am an Applied AI Specialist and Cloud & Data Engineer at IBM supporting business-critical cloud data engineering platforms and enterprise applications across global markets. My core expertise spans Matillion ETL, Snowflake, Databricks, and AWS, focusing on high-availability data pipelines, L2 production incident management, root cause analysis (RCA), and automated operational excellence. With a software engineering foundation across ReactJS, Node.js, and Java, I bridge cloud-native reliability with AI-first workflows to engineer scalable, high-throughput solutions.`,
+  summary: `I'm a Data Engineer and Applied AI Specialist at IBM. I support cloud data platforms for global clients — mostly Matillion, Snowflake, Databricks, and AWS. Day to day that's pipeline support, L2 incident triage, RCA, and small automation to reduce repeat work. I started in software (React, Node, Java) and moved into data and AI workflows.`,
   metrics: [
-    { label: "Global Platform Availability", value: "99.98%", description: "L2 enterprise SLA adherence across global markets" },
-    { label: "Data Pipeline Workloads", value: "Multi-Cloud", description: "Matillion ETL, Snowflake, Databricks & AWS" },
-    { label: "Enterprise Experience", value: "3+ Years", description: "Production support, software dev & AI workflows" },
-    { label: "Verified Credentials", value: "10+ Badges", description: "IBM, Microsoft Azure, Matillion & Red Hat" }
+    { label: "What I do", value: "Data pipelines", description: "Matillion, Snowflake, Databricks, AWS" },
+    { label: "On-call scope", value: "L2 support", description: "Triage, RCA, runbooks" },
+    { label: "Experience", value: "3+ years", description: "Support, software, AI workflows" },
+    { label: "Certifications", value: "10+ earned", description: "IBM, Azure, Matillion, Red Hat" }
   ],
   languages: [
     { name: "English", level: "Fluent" },
@@ -42,66 +42,66 @@ export const pipelineNodes: PipelineNode[] = [
     id: "ingestion",
     name: "Source Ingestion",
     tech: "Kafka / REST APIs / SFTP",
-    role: "Raw Enterprise Event Stream",
+    role: "Incoming data feeds",
     status: "healthy",
-    latency: "18ms",
-    throughput: "2.4M rec/hr",
-    description: "Captures transactional events, CRM snapshots, and multi-market enterprise data feeds in real-time and micro-batches.",
+    latency: "Sample: ~18ms",
+    throughput: "Sample: ~2.4M rec/hr",
+    description: "Where raw events and batch files enter — transactions, CRM snapshots, market feeds.",
     icon: "DatabaseZap"
   },
   {
     id: "matillion",
     name: "Matillion ETL",
     tech: "Matillion ETL & Maia",
-    role: "Pipeline Orchestration & Transformation",
+    role: "Transforms and scheduling",
     status: "healthy",
-    latency: "140ms",
-    throughput: "1.8M rec/hr",
-    description: "Core ETL orchestration engine executing data preparation, validation, scheduling, dependency workflows, and error logging.",
+    latency: "Sample: ~140ms",
+    throughput: "Sample: ~1.8M rec/hr",
+    description: "Main ETL jobs: transforms, validation, schedules, and error logging.",
     icon: "Workflow"
   },
   {
     id: "aws",
-    name: "AWS Cloud Services",
+    name: "AWS",
     tech: "AWS S3 / IAM / Lambda / EC2",
-    role: "Secure Cloud Data Lake & Compute",
+    role: "Storage and compute",
     status: "healthy",
-    latency: "32ms",
-    throughput: "4.2 GB/min",
-    description: "Cloud-native storage tier with partitioned landing zones, automated lifecycle policies, and secure multi-region IAM federation.",
+    latency: "Sample: ~32ms",
+    throughput: "Sample: ~4.2 GB/min",
+    description: "S3 landing zones for raw and staged data, with IAM and lifecycle rules.",
     icon: "Cloud"
   },
   {
     id: "snowflake",
-    name: "Snowflake DWH",
-    tech: "Snowflake Cloud DW & SQL",
-    role: "Analytical Data Warehousing",
+    name: "Snowflake",
+    tech: "Snowflake & SQL",
+    role: "Warehouse for analytics",
     status: "healthy",
-    latency: "45ms",
-    throughput: "12.5M rows/q",
-    description: "Scalable enterprise analytical warehouse with virtual multi-cluster compute, zero-copy cloning, and optimized dimensional models.",
+    latency: "Sample: ~45ms",
+    throughput: "Sample: ~12.5M rows/q",
+    description: "Warehouse for cleaned, modeled tables used by reporting.",
     icon: "Layers"
   },
   {
     id: "databricks",
-    name: "Databricks Lakehouse",
+    name: "Databricks",
     tech: "Apache Spark / Delta Lake",
-    role: "Distributed Processing & ML Compute",
+    role: "Heavy processing",
     status: "healthy",
-    latency: "210ms",
-    throughput: "350 GB/batch",
-    description: "High-performance Spark clusters processing complex transformations, automated feature pipelines, and enterprise data science jobs.",
+    latency: "Sample: ~210ms",
+    throughput: "Sample: ~350 GB/batch",
+    description: "Spark jobs for larger transforms and data science inputs.",
     icon: "Cpu"
   },
   {
     id: "consumers",
-    name: "Enterprise Workloads",
-    tech: "BI / Global Analytics / AI Services",
-    role: "Global Downstream Business Impact",
+    name: "Downstream use",
+    tech: "BI / Reports / AI",
+    role: "Reports and dashboards",
     status: "healthy",
-    latency: "95ms",
-    throughput: "100+ Consumers",
-    description: "Feeds Philip Morris International & global market reporting, executive dashboards, and AI-enabled decision services.",
+    latency: "Sample: ~95ms",
+    throughput: "Sample: 100+ users",
+    description: "Dashboards and reports used by business teams.",
     icon: "Activity"
   }
 ];
@@ -109,61 +109,61 @@ export const pipelineNodes: PipelineNode[] = [
 export const incidentScenarios: IncidentScenario[] = [
   {
     id: "pipeline-backpressure",
-    title: "Scenario 1: High-Volume ETL Ingestion Lock Contention",
-    component: "Matillion ETL ➔ Snowflake",
-    severity: "P2 - Elevated Latency",
-    symptom: "Ingestion queue depth surged 340%. Upstream batch load throttled due to concurrent target table lock.",
+    title: "ETL lock contention (Matillion → Snowflake)",
+    component: "Matillion ETL → Snowflake",
+    severity: "Example: elevated latency",
+    symptom: "Queue built up because two jobs tried to write to the same table at once.",
     logs: [
-      "[14:22:01.104] [ALERT] Ingestion queue threshold exceeded: 420,000 pending messages.",
-      "[14:22:04.821] [WARN] Matillion job `PMI_TRANSFORM_MARKET_04` status: WAITING_FOR_RESOURCE.",
-      "[14:22:08.512] [ERROR] Snowflake Lock Contention: Query 01bd8821 locked on table `STG_GLOBAL_SALES`.",
-      "[14:22:15.220] [L2_TRIAGE] Initiated incident RCA protocol by Aditya Narayan Sahoo."
+      "[14:22:01] Queue depth above threshold: many messages pending.",
+      "[14:22:04] Matillion job PMI_TRANSFORM_MARKET_04 waiting for resource.",
+      "[14:22:08] Snowflake reports lock on table STG_GLOBAL_SALES.",
+      "[14:22:15] Started triage per runbook."
     ],
-    rca: "Root cause isolated to concurrent micro-batch upsert colliding with scheduled daily consolidation task without optimistic warehouse concurrency isolation.",
+    rca: "A micro-batch upsert overlapped with the daily consolidation job on the same table.",
     resolution: [
-      "Dynamically scaled Snowflake virtual warehouse to Multi-Cluster auto-scaling mode (Max: 4).",
-      "Applied Matillion retry partition strategy and rescheduled daily consolidation off-peak.",
-      "Restored ingestion velocity to 1.8M records/hr with 0% data loss within 14 minutes."
+      "Scaled the Snowflake warehouse up temporarily and let the queue drain.",
+      "Moved the daily job off-peak and added retry logic in Matillion.",
+      "Confirmed no data loss and documented the schedule change."
     ],
     affectedNode: "matillion"
   },
   {
     id: "spark-memory-skew",
-    title: "Scenario 2: Databricks Spark Worker OOM & Data Skew",
-    component: "Databricks Lakehouse",
-    severity: "P1 - Critical Cluster Degradation",
-    symptom: "Databricks worker nodes dropping out of cluster with ExecutorLostFailure (Memory limit exceeded >98%).",
+    title: "Spark OOM from skewed key (Databricks)",
+    component: "Databricks",
+    severity: "Example: cluster degradation",
+    symptom: "Workers dropped with out-of-memory errors during a shuffle stage.",
     logs: [
-      "[09:15:32.410] [ALERT] Cluster `db-prod-analytics-eu` node-04 status: UNRESPONSIVE.",
-      "[09:15:36.190] [ERROR] org.apache.spark.memory.SparkOutOfMemoryError: Java heap space during ShuffleMapStage.",
-      "[09:15:40.890] [DIAGNOSTIC] Detected 84% skew on partition key `market_dim_code = NULL`.",
-      "[09:15:44.200] [L2_TRIAGE] Aditya Narayan Sahoo isolated skewed broadcast hash join."
+      "[09:15:32] Cluster db-prod-analytics-eu node-04 unresponsive.",
+      "[09:15:36] SparkOutOfMemoryError: Java heap space during shuffle.",
+      "[09:15:40] Most rows landed on one partition key (null market code).",
+      "[09:15:44] Isolated the skewed input."
     ],
-    rca: "Upstream source ingested bulk unassigned retail customer IDs causing 12M rows to concentrate into a single Spark partition executor.",
+    rca: "A bulk load of unassigned IDs put ~12M rows on a single partition.",
     resolution: [
-      "Isolated problematic dataset and rerouted staging stream to temporary spill-over storage.",
-      "Implemented salted key partitioning strategy in PySpark job definition to evenly disperse null values.",
-      "Restarted Databricks cluster with optimized dynamic allocation; pipeline stabilized in 11 minutes."
+      "Quarantined the bad batch and re-ran the rest.",
+      "Added salting to spread null keys across partitions.",
+      "Restarted with adjusted allocation and watched the next run."
     ],
     affectedNode: "databricks"
   },
   {
     id: "s3-schema-drift",
-    title: "Scenario 3: AWS S3 Staging Format Drift & Dead-Letter Isolation",
-    component: "AWS S3 ➔ Matillion ETL",
-    severity: "P3 - Schema Mismatch Warning",
-    symptom: "Ingestion pipeline rejected 14,200 records due to unexpected ISO-8601 millisecond timestamp variance.",
+    title: "Timestamp format change (S3 → Matillion)",
+    component: "AWS S3 → Matillion ETL",
+    severity: "Example: schema warning",
+    symptom: "About 14k records were rejected after a timestamp format changed.",
     logs: [
-      "[18:02:11.332] [WARN] AWS S3 event trigger fired for `s3://pmi-data-lake-prod/incoming/2026/09/`.",
-      "[18:02:14.504] [FAIL] Matillion JSON Parser: Timestamp `2026-09-02T18:02:11.332Z` parsing exception at record #401.",
-      "[18:02:19.112] [INFO] Automatic dead-letter quarantine activated: 14,200 records routed to DLQ bucket.",
-      "[18:02:24.008] [L2_TRIAGE] Aditya Narayan Sahoo reviewed schema evolution policy and runbook."
+      "[18:02:11] New files arrived in s3://pmi-data-lake-prod/incoming/.",
+      "[18:02:14] JSON parser failed on timestamp at record #401.",
+      "[18:02:19] Rejected records routed to dead-letter location.",
+      "[18:02:24] Reviewed schema policy and runbook."
     ],
-    rca: "Upstream source system API release altered epoch timestamp serialization without prior deprecation notice.",
+    rca: "The source API changed timestamp serialization without notice.",
     resolution: [
-      "Updated Matillion transformation component with resilient flexible regex timestamp parser.",
-      "Replayed quarantined records from S3 Dead-Letter Queue with full integrity verification.",
-      "Authored operational runbook KB-882 to prevent recurrence across other regional market ingestion feeds."
+      "Made the timestamp parser accept both formats.",
+      "Replayed the quarantined records after validation.",
+      "Added a note to the runbook for other regional feeds."
     ],
     affectedNode: "aws"
   }
@@ -176,37 +176,31 @@ export const experiences: Experience[] = [
     location: "India",
     period: "Jul 2026 - Present",
     type: "Full-Time",
-    badge: "Current Role",
-    summary: "Driving AI-first engineering principles, cloud platform resilience, and intelligent automation across enterprise data workloads.",
+    badge: "Current",
+    summary: "I work on AI-assisted engineering and keep data platforms stable.",
     bullets: [
-      "Design, develop, and evolve software and cloud-based solutions with an AI-First engineering mindset, focusing on scalability, security, reliability, and user experience.",
-      "Provide L2 production support for enterprise cloud data engineering platforms and business-critical applications, ensuring availability, stability, and timely restoration of critical services.",
-      "Monitor, troubleshoot, and optimize ETL workflows developed using Matillion ETL and support enterprise data integration workloads involving Snowflake, Databricks, and AWS.",
-      "Investigate complex production incidents across application, data, and cloud environments, performing log analysis, root cause analysis (RCA), problem management, and cross-functional technical coordination.",
-      "Support Databricks environments by investigating workspace operations, job execution, cluster availability, connectivity, and platform-related performance issues.",
-      "Support AWS-hosted enterprise environments by analysing application and infrastructure logs, monitoring system health, and coordinating resolution with cloud infrastructure teams.",
-      "Contribute to automation, operational process improvements, scheduling enhancements, and intelligent development workflows to improve engineering and support efficiency.",
-      "Build on a software development background spanning ReactJS, JavaScript, Java, Node.js, REST APIs, automation, and system integration to contribute to modern cloud and AI-enabled application development."
+      "Handle L2 support for data platforms: triage, RCA, and restoring service.",
+      "Support Matillion, Snowflake, Databricks, and AWS workloads.",
+      "Write and update runbooks so repeat incidents are faster to fix.",
+      "Use my software background (React, Node, Java) for small tools and automation."
     ],
-    skills: ["Applied AI", "Matillion ETL", "Snowflake", "Databricks", "AWS", "Incident Management", "RCA", "Agentic Workflows", "ReactJS", "Node.js"]
+    skills: ["Applied AI", "Matillion ETL", "Snowflake", "Databricks", "AWS", "L2 Support", "RCA", "React", "Node.js"]
   },
   {
-    role: "Data & Cloud Engineer (Enterprise Assignment)",
-    company: "PHILIP MORRIS INTERNATIONAL (via IBM)",
+    role: "Data & Cloud Engineer",
+    company: "Philip Morris International (via IBM)",
     location: "India",
     period: "May 2025 - Present",
-    type: "Client Assignment",
-    badge: "Featured Enterprise Engagement",
-    summary: "Providing end-to-end application and production support for Philip Morris International's enterprise cloud data engineering platform across multiple global markets.",
+    type: "Client work",
+    badge: "Featured",
+    summary: "I support PMI's data platform across global markets.",
     bullets: [
-      "Maintain platform reliability, high availability, and performance across Matillion ETL, Snowflake, Databricks, and AWS-hosted services supporting multi-market workflows.",
-      "Manage critical data ingestion, transformation, integration, and reporting workflows powering global business analytics.",
-      "Rapidly troubleshoot ETL pipeline failures, scheduling anomalies, metadata inconsistencies, connectivity problems, and performance bottlenecks.",
-      "Lead cross-functional coordination during major incidents across development, cloud infrastructure, and global client stakeholder teams.",
-      "Authored and standardized knowledge base runbooks, incident management playbooks, and troubleshooting documentation to enhance operational maturity.",
-      "Support enterprise application operations, including Adobe Creative Cloud licensing, access provisioning, and platform-related enterprise requests."
+      "Keep ingestion, transforms, and reporting jobs running.",
+      "Debug ETL failures, scheduling issues, and slow queries.",
+      "Coordinate with infra and client teams during incidents.",
+      "Wrote runbooks and troubleshooting docs for the team."
     ],
-    skills: ["Enterprise Operations", "Matillion Maia", "Snowflake Warehousing", "Databricks Spark", "AWS S3/EC2", "24/7 Production SLA", "ServiceNow", "Runbook Engineering"]
+    skills: ["Matillion", "Snowflake", "Databricks Spark", "AWS S3", "ServiceNow", "Runbooks"]
   },
   {
     role: "Associate Systems Engineer",
@@ -214,15 +208,14 @@ export const experiences: Experience[] = [
     location: "India",
     period: "Feb 2024 - Jun 2026",
     type: "Full-Time",
-    badge: "Promotion to Specialist",
-    summary: "Delivered L2 production support, root cause analysis, and operational automation for global cloud data infrastructure.",
+    badge: "Previous role",
+    summary: "L2 support and log analysis for cloud data platforms.",
     bullets: [
-      "Provided L2 production support for cloud data engineering platforms supporting multiple global markets and business-critical data workflows.",
-      "Monitored and resolved production incidents involving Matillion ETL, Snowflake, Databricks, and AWS cloud environments.",
-      "Analysed application and platform logs to identify recurring failure patterns, isolate technical bugs, and drive continuous service improvements.",
-      "Implemented automated scheduling and job retry mechanisms reducing manual triage intervention by ~30%."
+      "Supported Matillion, Snowflake, Databricks, and AWS in production.",
+      "Read logs to find repeat failures and fix root causes.",
+      "Added scheduling and retry automation to cut manual triage."
     ],
-    skills: ["L2 Production Support", "Cloud Data Platforms", "Log Analysis", "Incident Response", "Linux", "SQL", "Git", "CI/CD"]
+    skills: ["L2 Support", "Log Analysis", "Linux", "SQL", "Git", "CI/CD"]
   },
   {
     role: "Software Engineer Intern",
@@ -230,23 +223,22 @@ export const experiences: Experience[] = [
     location: "India",
     period: "Dec 2023 - May 2024",
     type: "Internship",
-    badge: "Automotive & Embedded",
-    summary: "Developed high-performance automotive user interfaces and automation tools for next-generation vehicle platforms.",
+    badge: "Internship",
+    summary: "Built automotive UIs and small automation tools.",
     bullets: [
-      "Designed and developed ReactJS-based user interfaces for automotive infotainment, navigation telematics, and ADAS systems with emphasis on usability and driver safety.",
-      "Developed automation solutions using C++ and multithreading to improve operational efficiency and reduce manual testing intervention.",
-      "Integrated frontend applications with embedded backend components to deliver seamless real-time functionality.",
-      "Participated in system integration, unit testing, debugging, and performance optimization throughout the SDLC in an Agile environment."
+      "Built React UIs for infotainment and telematics prototypes.",
+      "Wrote C++ automation to reduce manual testing.",
+      "Worked in Agile: integration, testing, debugging."
     ],
-    skills: ["ReactJS", "C++", "Multithreading", "Embedded Systems", "Automotive ADAS", "Agile", "System Integration"]
+    skills: ["React", "C++", "Embedded", "Agile"]
   }
 ];
 
 export const skillCategories: SkillCategory[] = [
   {
     id: "cloud-data",
-    name: "Cloud & Data Engineering",
-    description: "Core expertise in scalable cloud storage, data warehousing, and ETL orchestration.",
+    name: "Cloud & Data",
+    description: "What I use most days.",
     skills: [
       { name: "Matillion ETL", level: "Specialist", highlight: true },
       { name: "Snowflake", level: "Advanced", highlight: true },
@@ -262,8 +254,8 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     id: "ai-intelligent",
-    name: "Applied AI & Intelligent Engineering",
-    description: "AI-first development mindset, generative models, and intelligent workflows.",
+    name: "Applied AI",
+    description: "AI tools I actually use in work.",
     skills: [
       { name: "Generative AI Foundations", level: "Certified", highlight: true },
       { name: "IBM watsonx", level: "Certified", highlight: true },
@@ -275,8 +267,8 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     id: "devops-ops",
-    name: "DevOps & Production Operations",
-    description: "Ensuring 99.9%+ availability through proactive telemetry, RCA, and automation.",
+    name: "Support & Ops",
+    description: "Keeping things running.",
     skills: [
       { name: "Incident Management (L2)", level: "Specialist", highlight: true },
       { name: "Root Cause Analysis (RCA)", level: "Specialist", highlight: true },
@@ -290,8 +282,8 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     id: "software-eng",
-    name: "Software & Web Engineering",
-    description: "Full-stack application development foundation powering custom tooling and UIs.",
+    name: "Software",
+    description: "My dev background.",
     skills: [
       { name: "ReactJS", level: "Advanced", highlight: true },
       { name: "JavaScript (ES6+)", level: "Advanced", highlight: true },
@@ -305,8 +297,8 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     id: "ways-of-working",
-    name: "Ways of Working & Methodologies",
-    description: "Enterprise delivery habits, agile collaboration, and continuous improvement.",
+    name: "Ways of working",
+    description: "How I work with teams.",
     skills: [
       { name: "Agile & Scrum (IBM Certified)", level: "Certified", highlight: true },
       { name: "Enterprise Design Thinking", level: "Practitioner", highlight: true },
