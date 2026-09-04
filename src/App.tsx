@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import MobileNavDock from './components/MobileNavDock';
 import Footer from './components/Footer';
@@ -12,9 +12,25 @@ import PipelinePage from './pages/PipelinePage';
 import ExperiencePage from './pages/ExperiencePage';
 import CredentialsPage from './pages/CredentialsPage';
 import ContactPage from './pages/ContactPage';
+import NotFoundPage from './pages/NotFoundPage';
+
+function isValidPathname(pathname: string): boolean {
+  const cleanPath = pathname.replace(/\/+$/, '') || '/';
+  const allowed = ['/', '/index.html', '/portfolio', '/portfolio/index.html'];
+  return allowed.includes(cleanPath);
+}
 
 export default function App() {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
+  const [hasInvalidPath, setHasInvalidPath] = useState(() => !isValidPathname(window.location.pathname));
+
+  useEffect(() => {
+    const handlePopState = () => {
+      setHasInvalidPath(!isValidPathname(window.location.pathname));
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   return (
     <HashRouter>
@@ -25,30 +41,34 @@ export default function App() {
 
         {/* Multi-Page Routes */}
         <main className="main-content-router">
-          <Routes>
-            <Route 
-              path="/" 
-              element={<HomePage onOpenResume={() => setIsResumeOpen(true)} />} 
-            />
-            <Route 
-              path="/pipeline" 
-              element={<PipelinePage />} 
-            />
-            <Route 
-              path="/experience" 
-              element={<ExperiencePage />} 
-            />
-            <Route 
-              path="/credentials" 
-              element={<CredentialsPage />} 
-            />
-            <Route 
-              path="/contact" 
-              element={<ContactPage onOpenResume={() => setIsResumeOpen(true)} />} 
-            />
-            {/* Fallback redirect */}
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
+          {hasInvalidPath ? (
+            <NotFoundPage invalidPath={window.location.pathname + window.location.hash} />
+          ) : (
+            <Routes>
+              <Route 
+                path="/" 
+                element={<HomePage onOpenResume={() => setIsResumeOpen(true)} />} 
+              />
+              <Route 
+                path="/pipeline" 
+                element={<PipelinePage />} 
+              />
+              <Route 
+                path="/experience" 
+                element={<ExperiencePage />} 
+              />
+              <Route 
+                path="/credentials" 
+                element={<CredentialsPage />} 
+              />
+              <Route 
+                path="/contact" 
+                element={<ContactPage onOpenResume={() => setIsResumeOpen(true)} />} 
+              />
+              {/* Fallback for invalid hash routes */}
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+          )}
         </main>
 
         {/* Global Footer */}
