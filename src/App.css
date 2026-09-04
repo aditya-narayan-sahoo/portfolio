@@ -1875,12 +1875,18 @@
 }
 
 .printable-cv {
-  padding: 2.5rem;
+  padding: 3.25rem 3.5rem;
   overflow-y: auto;
   color: #1e293b;
   background: #ffffff;
   font-family: var(--font-sans);
   line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+  .printable-cv {
+    padding: 2rem 1.5rem;
+  }
 }
 
 .cv-header {
@@ -1994,7 +2000,7 @@
 @media print {
   @page {
     size: A4 portrait;
-    margin: 18mm 20mm;
+    margin: 12mm 15mm;
   }
 
   /* Kill fixed background pseudo-elements and heavy filters that cause PDF scroll lag */
@@ -2075,12 +2081,18 @@
     max-width: 100% !important;
     height: auto !important;
     overflow: visible !important;
-    padding: 0 !important;
+    box-sizing: border-box !important;
+    padding: 8mm 10mm !important;
     margin: 0 !important;
     background: #ffffff !important;
     color: #1e293b !important;
     font-family: var(--font-sans) !important;
     line-height: 1.5 !important;
+  }
+
+  /* Hide inline SVG vector paths in print to keep PDF generation ultra-light and eliminate reader scroll lag */
+  .printable-cv svg {
+    display: none !important;
   }
 
   .cv-header {
