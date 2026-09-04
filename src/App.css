@@ -1994,28 +1994,37 @@
 @media print {
   @page {
     size: A4 portrait;
-    margin: 10mm 12mm;
+    margin: 18mm 20mm;
   }
 
-  /* Globally eliminate heavy graphical filters, animations, and shadows during print */
+  /* Kill fixed background pseudo-elements and heavy filters that cause PDF scroll lag */
+  body::before,
+  body::after {
+    display: none !important;
+    content: none !important;
+  }
+
   *, *::before, *::after {
     box-shadow: none !important;
     text-shadow: none !important;
     filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
     transition: none !important;
     animation: none !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
   }
 
   html, body {
     background: #ffffff !important;
-    color: #111827 !important;
+    color: #1e293b !important;
     overflow: visible !important;
     height: auto !important;
     min-height: auto !important;
+    max-width: none !important;
     margin: 0 !important;
     padding: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 
   /* Hide everything outside the CV */
@@ -2028,7 +2037,7 @@
     display: none !important;
   }
 
-  /* Unwrap modal overlay and container completely so they do not clip or restrict flow */
+  /* Unwrap modal overlay and container so they do not clip or restrict flow */
   .resume-modal-overlay {
     position: static !important;
     inset: auto !important;
@@ -2058,6 +2067,7 @@
     padding: 0 !important;
   }
 
+  /* Match preview layout, font sizes, margins and typography 1:1 */
   .printable-cv {
     position: static !important;
     display: block !important;
@@ -2067,65 +2077,54 @@
     overflow: visible !important;
     padding: 0 !important;
     margin: 0 !important;
-    background: transparent !important;
-    color: #111827 !important;
-  }
-
-  .printable-cv, .printable-cv * {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+    background: #ffffff !important;
+    color: #1e293b !important;
+    font-family: var(--font-sans) !important;
+    line-height: 1.5 !important;
   }
 
   .cv-header {
     display: flex !important;
     justify-content: space-between !important;
-    align-items: flex-start !important;
-    border-bottom: 2px solid #111827 !important;
-    padding-bottom: 8px !important;
-    margin-bottom: 12px !important;
+    border-bottom: 2px solid #0f172a !important;
+    padding-bottom: 1.25rem !important;
+    margin-bottom: 1.5rem !important;
   }
 
   .cv-name {
-    font-size: 1.6rem !important;
+    font-size: 2rem !important;
     font-weight: 800 !important;
-    color: #111827 !important;
-    margin-bottom: 2px !important;
-    letter-spacing: -0.02em !important;
+    color: #0f172a !important;
     line-height: 1.1 !important;
   }
 
   .cv-role {
-    font-size: 0.88rem !important;
+    font-size: 1rem !important;
     color: #2563eb !important;
     font-weight: 600 !important;
-    margin-top: 0 !important;
+    margin-top: 0.25rem !important;
   }
 
   .cv-contact-info {
-    font-size: 0.78rem !important;
-    color: #374151 !important;
+    font-size: 0.8125rem !important;
+    color: #475569 !important;
     text-align: right !important;
-    gap: 2px !important;
-    line-height: 1.3 !important;
-  }
-
-  .cv-contact-info div {
     display: flex !important;
-    align-items: center !important;
-    justify-content: flex-end !important;
-    gap: 4px !important;
+    flex-direction: column !important;
+    gap: 0.2rem !important;
   }
 
   .cv-section {
-    margin-bottom: 10px !important;
+    margin-bottom: 1.5rem !important;
   }
 
   .cv-heading {
-    font-size: 0.85rem !important;
+    font-size: 1.125rem !important;
     font-weight: 700 !important;
-    color: #111827 !important;
-    border-bottom: 1px solid #d1d5db !important;
-    padding-bottom: 3px !important;
-    margin-bottom: 6px !important;
+    color: #0f172a !important;
+    border-bottom: 1px solid #cbd5e1 !important;
+    padding-bottom: 0.35rem !important;
+    margin-bottom: 0.75rem !important;
     text-transform: uppercase !important;
     letter-spacing: 0.05em !important;
     break-after: avoid !important;
@@ -2133,13 +2132,13 @@
   }
 
   .cv-text {
-    font-size: 0.8rem !important;
-    color: #374151 !important;
-    line-height: 1.45 !important;
+    font-size: 0.875rem !important;
+    color: #334155 !important;
+    line-height: 1.6 !important;
   }
 
   .cv-exp-block {
-    margin-bottom: 8px !important;
+    margin-bottom: 1.25rem !important;
     break-inside: avoid !important;
     page-break-inside: avoid !important;
   }
@@ -2147,62 +2146,59 @@
   .cv-exp-header {
     display: flex !important;
     justify-content: space-between !important;
-    font-size: 0.82rem !important;
-    color: #111827 !important;
+    font-size: 0.9375rem !important;
+    color: #0f172a !important;
   }
 
   .cv-date {
-    font-size: 0.76rem !important;
-    color: #4b5563 !important;
-    font-weight: 500 !important;
+    color: #64748b !important;
   }
 
   .cv-exp-sub {
-    font-size: 0.78rem !important;
-    color: #4b5563 !important;
-    margin-bottom: 3px !important;
+    font-size: 0.8125rem !important;
+    color: #64748b !important;
+    margin-bottom: 0.5rem !important;
   }
 
   .cv-list {
-    padding-left: 1.1rem !important;
-    font-size: 0.78rem !important;
-    color: #374151 !important;
-    margin: 0 !important;
+    padding-left: 1.25rem !important;
+    font-size: 0.8125rem !important;
+    color: #334155 !important;
   }
 
   .cv-list li {
-    margin-bottom: 2px !important;
-    line-height: 1.35 !important;
+    margin-bottom: 0.35rem !important;
+    line-height: 1.5 !important;
   }
 
   .cv-skills-grid {
     display: flex !important;
     flex-direction: column !important;
-    gap: 3px !important;
-    font-size: 0.78rem !important;
-    color: #374151 !important;
+    gap: 0.4rem !important;
+    font-size: 0.8125rem !important;
+    color: #334155 !important;
     break-inside: avoid !important;
     page-break-inside: avoid !important;
   }
 
   .cv-skill-group strong {
-    color: #111827 !important;
+    color: #0f172a !important;
   }
 
   .cv-creds-list {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 3px 12px !important;
-    font-size: 0.75rem !important;
-    color: #374151 !important;
+    gap: 0.35rem !important;
+    font-size: 0.8125rem !important;
+    color: #334155 !important;
     break-inside: avoid !important;
     page-break-inside: avoid !important;
   }
 
   .cv-edu-item {
-    margin-bottom: 5px !important;
-    font-size: 0.78rem !important;
-    color: #374151 !important;
+    margin-bottom: 0.75rem !important;
+    font-size: 0.8125rem !important;
+    color: #334155 !important;
     break-inside: avoid !important;
     page-break-inside: avoid !important;
   }
@@ -2210,8 +2206,8 @@
   .cv-edu-header {
     display: flex !important;
     justify-content: space-between !important;
-    color: #111827 !important;
-    font-size: 0.8rem !important;
+    color: #0f172a !important;
+    font-size: 0.875rem !important;
   }
 }
 
