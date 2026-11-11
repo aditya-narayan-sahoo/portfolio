@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ContactSection from '../components/ContactSection';
+import { personalInfo } from '../data/portfolioData';
 import { Mail, ArrowLeft, Home } from 'lucide-react';
 
 interface ContactPageProps {
@@ -35,7 +36,7 @@ export default function ContactPage({ onOpenResume }: ContactPageProps) {
           <div className="page-header-meta">
             <div className="header-meta-item">
               <span className="meta-label">EMAIL</span>
-              <span className="meta-val">adityasahoo@ibm.com</span>
+              <span className="meta-val">{personalInfo.email}</span>
             </div>
           </div>
         </div>

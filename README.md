@@ -1,7 +1,7 @@
-# Aditya Narayan Sahoo — IBM Internal Portfolio
+# Aditya Narayan Sahoo — DevOps, SRE & Cloud Automation Portfolio
 
-> **Cloud & Data Engineering Specialist | Applied AI Specialist at IBM India**  
-> Supporting business-critical cloud data engineering platforms, enterprise applications, and AI-enabled workflows across global markets.
+> **DevOps & SRE | Cloud & Data Automation Engineer at IBM India**  
+> Automating cloud infrastructure with Ansible AWX and Terraform Enterprise while supporting business-critical cloud data engineering platforms and AI-enabled workflows.
 
 [![React](https://img.shields.io/badge/React-19-blue.svg)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-8.2-purple.svg)](https://vitejs.dev/)
@@ -12,18 +12,18 @@
 
 ## ⚡ Overview
 
-This repository hosts the interactive portfolio web application for **Aditya Narayan Sahoo**, showcasing enterprise cloud and data engineering expertise, production L2 reliability engineering, and applied AI workflows honed through high-throughput engagements with **IBM** and client engagements including **Philip Morris International**.
+This repository hosts the interactive portfolio web application for **Aditya Narayan Sahoo**, showcasing enterprise cloud, data engineering, and infrastructure automation expertise (Ansible AWX, Terraform Enterprise), production reliability engineering, and applied AI workflows honed through engagements with **IBM** and client engagements including **Philip Morris International**.
 
 ### 🌟 Key Features
 
-1. **Interactive Multi-Cloud Data Pipeline Visualizer**:
-   - Visual architectural flow: **Source Ingestion ➔ Matillion ETL & Maia ➔ AWS Cloud (S3/IAM) ➔ Snowflake DWH ➔ Databricks Lakehouse ➔ Enterprise Consumers & Reporting**.
-   - Real-time telemetry inspector displaying response latency, sustained throughput, core runtimes, and 24/7 SLA monitoring scope.
-   - **Enterprise L2 Production Incident & RCA Simulator**: 3 real-world scenarios (*High-Volume ETL Ingestion Lock Contention*, *Databricks Spark Worker OOM & Data Skew*, and *AWS S3 Staging Format Drift*) with diagnostic stream logs, Root Cause Analysis (RCA), and step-by-step remediation with resolution confetti.
+1. **Interactive Multi-Cloud Data & Automation Visualizer**:
+   - Visual architectural flow: **Terraform Enterprise ➔ Ansible AWX ➔ Source Ingestion ➔ Matillion ETL & Maia ➔ AWS Cloud (S3/IAM) ➔ Snowflake DWH ➔ Databricks Lakehouse ➔ Enterprise Consumers & Reporting**.
+   - Real-time telemetry inspector displaying response latency, sustained throughput, core runtimes, and operational status.
+   - **Enterprise Production Incident & RCA Simulator**: 5 real-world scenarios (*High-Volume ETL Ingestion Lock Contention*, *Databricks Spark Worker OOM & Data Skew*, *AWS S3 Staging Format Drift*, *Ansible AWX Playbook Timeout on Inventory Sync*, and *Terraform Enterprise Workspace State Lock Contention*) with diagnostic stream logs, Root Cause Analysis (RCA), and step-by-step remediation.
 
 2. **Enterprise Experience & Track Record**:
    - **Applied AI Specialist** at IBM India (Jul 2026 - Present).
-   - **Data & Cloud Engineer** on featured client engagement with **Philip Morris International** (May 2025 - Present) supporting global market workflows across Matillion, Snowflake, Databricks, and AWS.
+   - **Data & Cloud Engineer** on featured client engagement with **Philip Morris International** (May 2025 - Present) supporting global market workflows across Matillion, Snowflake, Databricks, AWS, Ansible AWX, and Terraform Enterprise.
    - **Associate Systems Engineer** at IBM India (Feb 2024 - Jun 2026).
    - **Software Engineer Intern** at KPIT Technologies (Dec 2023 - May 2024).
 
@@ -41,7 +41,7 @@ This repository hosts the interactive portfolio web application for **Aditya Nar
    - **Butter-Smooth Theme Cross-Fade**: Hardware-accelerated dual-layer ambient gradient cross-fade with zero visual snap/disruption.
 
 6. **Privacy-First Contact Suite & In-Browser Printable CV**:
-   - One-click copy for corporate email `adityasahoo@ibm.com` with toast confirmation.
+   - One-click copy for personal email `adityasahoo246@gmail.com` with toast confirmation.
    - Integrated full curriculum vitae modal ready for `Print / Save to PDF`.
 
 ---
@@ -121,9 +121,9 @@ Production assets are generated in the `dist/` directory.
 ## 👤 Author
 
 **Aditya Narayan Sahoo**  
-- Email: `adityasahoo@ibm.com`  
-- Current Role: Applied AI Specialist, IBM India Pvt. Ltd.  
-- Client Engagement: Philip Morris International  
+- Email: `adityasahoo246@gmail.com`  
+- Focus: DevOps & SRE | Cloud & Data Automation Engineer  
+- Current Employer: IBM India Pvt. Ltd. (Client: Philip Morris International)  
 
 ---
 

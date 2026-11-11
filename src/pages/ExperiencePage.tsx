@@ -26,13 +26,13 @@ export default function ExperiencePage() {
           </div>
           <h1 className="page-title">Work and school</h1>
           <p className="page-subtitle">
-            IBM roles and client work for PMI, plus education.
+            Transitioning into DevOps &amp; SRE with Ansible AWX and Terraform Enterprise, building on IBM and PMI cloud engineering work.
           </p>
 
           <div className="page-header-meta">
             <div className="header-meta-item">
-              <span className="meta-label">NOW</span>
-              <span className="meta-val">Applied AI Specialist, IBM India</span>
+              <span className="meta-label">FOCUS</span>
+              <span className="meta-val">DevOps / SRE (AWX &amp; Terraform), IBM India</span>
             </div>
             <div className="header-meta-item">
               <span className="meta-label">CLIENT</span>
@@ -57,7 +57,7 @@ export default function ExperiencePage() {
             <span className="nav-sub">Previous</span>
             <Link to="/pipeline" className="nav-title-link">
               <ArrowLeft size={16} />
-              <span>Pipeline</span>
+              <span>Architecture</span>
             </Link>
           </div>
           <div className="page-nav-col text-right">

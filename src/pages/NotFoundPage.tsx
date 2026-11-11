@@ -43,7 +43,7 @@ export default function NotFoundPage({ invalidPath }: NotFoundPageProps) {
           <div className="suggestions-grid">
             <Link to="/pipeline" className="suggestion-chip">
               <Layers size={14} className="text-cyan" />
-              <span>Pipeline Examples</span>
+              <span>Architecture &amp; SRE</span>
               <ArrowRight size={12} />
             </Link>
             <Link to="/experience" className="suggestion-chip">

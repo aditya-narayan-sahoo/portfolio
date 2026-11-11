@@ -14,24 +14,24 @@ export default function PipelinePage() {
             <span>Back to Overview</span>
           </Link>
           <span className="breadcrumb-sep">/</span>
-          <span className="breadcrumb-current">Cloud Architecture & Pipeline</span>
+          <span className="breadcrumb-current">DevOps, SRE &amp; Cloud Architecture</span>
         </div>
 
         {/* Page Header */}
         <div className="page-header">
           <div className="section-eyebrow">
             <Layers size={14} />
-            <span>PIPELINE</span>
+            <span>ARCHITECTURE &amp; SRE</span>
           </div>
-          <h1 className="page-title">Pipeline examples</h1>
+          <h1 className="page-title">Infrastructure &amp; pipeline flow</h1>
           <p className="page-subtitle">
-            Simplified diagrams with sample numbers, plus three short incident write-ups.
+            Simplified architecture diagrams with sample telemetry, plus SRE incident &amp; RCA write-ups.
           </p>
 
           <div className="page-header-meta">
             <div className="header-meta-item">
               <span className="meta-label">STACK</span>
-              <span className="meta-val">Matillion, S3, Snowflake, Databricks</span>
+              <span className="meta-val">Terraform Enterprise, Ansible AWX, AWS, Matillion, Snowflake, Databricks</span>
             </div>
             <div className="header-meta-item">
               <span className="meta-label">DATA</span>

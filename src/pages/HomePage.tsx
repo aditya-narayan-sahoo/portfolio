@@ -17,13 +17,13 @@ export default function HomePage({ onOpenResume }: HomePageProps) {
   const portalCards = [
     {
       id: 'pipeline',
-      tag: 'Pipeline',
+      tag: 'Architecture',
       icon: Layers,
       color: 'text-cyan',
-      title: 'Pipeline examples',
-      description: 'How a typical Matillion → S3 → Snowflake → Databricks flow fits together, with three incident write-ups.',
+      title: 'Architecture & SRE',
+      description: 'How Terraform Enterprise and Ansible AWX automate AWS & data platforms, with SRE incident write-ups.',
       link: '/pipeline',
-      cta: 'See examples'
+      cta: 'Explore stack'
     },
     {
       id: 'experience',
@@ -31,7 +31,7 @@ export default function HomePage({ onOpenResume }: HomePageProps) {
       icon: Briefcase,
       color: 'text-blue',
       title: 'Work history',
-      description: 'IBM roles from associate engineer to AI specialist, plus client work for PMI.',
+      description: 'DevOps/SRE transition with AWX & Terraform, IBM engineering roles, and PMI client work.',
       link: '/experience',
       cta: 'Work history'
     },
@@ -41,7 +41,7 @@ export default function HomePage({ onOpenResume }: HomePageProps) {
       icon: Award,
       color: 'text-purple',
       title: 'Skills and certs',
-      description: 'Tools I use and certs I hold — IBM, Azure, Matillion, Red Hat.',
+      description: 'DevOps, IaC, SRE, and cloud data tools plus IBM, Azure, Matillion, and Red Hat certifications.',
       link: '/credentials',
       cta: 'Skills and certs'
     },

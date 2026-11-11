@@ -13,7 +13,9 @@ import {
   Zap, 
   ShieldAlert, 
   Info,
-  Server
+  Server,
+  Settings,
+  Building
 } from 'lucide-react';
 
 const iconMap: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
@@ -22,11 +24,13 @@ const iconMap: Record<string, React.ComponentType<{ size?: number; className?: s
   Cloud: Cloud,
   Layers: Layers,
   Cpu: Cpu,
-  Activity: Activity
+  Activity: Activity,
+  Settings: Settings,
+  Building: Building
 };
 
 export default function PipelineVisualizer() {
-  const [selectedNodeId, setSelectedNodeId] = useState<string>('matillion');
+  const [selectedNodeId, setSelectedNodeId] = useState<string>('terraform');
   const [activeScenarioId, setActiveScenarioId] = useState<string | null>(null);
   const [isResolving, setIsResolving] = useState<boolean>(false);
   const [resolvedScenarios, setResolvedScenarios] = useState<Record<string, boolean>>({});
@@ -54,7 +58,7 @@ export default function PipelineVisualizer() {
 
   const handleReset = () => {
     setActiveScenarioId(null);
-    setSelectedNodeId('matillion');
+    setSelectedNodeId('terraform');
   };
 
   const isCurrentScenarioResolved = !!(activeScenario && resolvedScenarios[activeScenario.id]);
@@ -66,13 +70,12 @@ export default function PipelineVisualizer() {
         <div className="section-header">
           <div className="section-tag">
             <Zap size={14} />
-            <span>Pipeline example</span>
+            <span>DevOps &amp; SRE Architecture</span>
           </div>
-          <h2 className="section-title">How the pipeline fits together</h2>
+          <h2 className="section-title">How infrastructure automation &amp; data platforms fit together</h2>
           <p className="section-subtitle">
-            A simplified view of the stack I support — Matillion, AWS, Snowflake, Databricks.
-            Numbers below are samples to show the shape of the flow, not live production data.
-            The three examples are past incident patterns, shortened.
+            A simplified view of the stack I operate and automate — Terraform Enterprise, Ansible AWX, AWS, Matillion, Snowflake, and Databricks.
+            Numbers below are samples to illustrate architecture and SRE incident response, not live production telemetry.
           </p>
         </div>
 
@@ -81,7 +84,7 @@ export default function PipelineVisualizer() {
           <div className="simulator-header">
             <div className="simulator-title">
               <ShieldAlert size={18} className="text-accent" />
-              <span>Three incident examples — pick one</span>
+              <span>Incident examples — pick one</span>
             </div>
             {activeScenarioId && (
               <button onClick={handleReset} className="btn btn-secondary btn-sm">
@@ -214,8 +217,8 @@ export default function PipelineVisualizer() {
                 <span className="stat-value font-mono">{selectedNode.tech.split(' / ')[0]}</span>
               </div>
               <div className="stat-box">
-                <span className="stat-label">Support</span>
-                <span className="stat-value text-emerald">L2 covered</span>
+                <span className="stat-label">Operations</span>
+                <span className="stat-value text-emerald">Production</span>
               </div>
             </div>
 
@@ -310,7 +313,7 @@ export default function PipelineVisualizer() {
                 <Activity size={36} className="text-muted mb-2" />
                 <h4>No example selected</h4>
                 <p>
-                  Pick one of the three above to see symptoms, cause, and fix.
+                  Pick one of the examples above to see symptoms, cause, and fix.
                 </p>
                 <div className="empty-buttons">
                   <button onClick={() => handleSelectScenario('pipeline-backpressure')} className="btn btn-secondary btn-sm">

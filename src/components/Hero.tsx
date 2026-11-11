@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom';
 import { personalInfo } from '../data/portfolioData';
 import { 
   ArrowRight, 
-  ShieldCheck, 
   Database, 
   Sparkles, 
   Cloud, 
   Activity,
-  Cpu
+  Cpu,
+  Settings,
+  Building
 } from 'lucide-react';
 
 interface HeroProps {
@@ -23,30 +24,30 @@ export default function Hero({ onOpenResume }: HeroProps) {
         <div className="hero-meta">
           <div className="hero-badge">
             <span className="badge-glow"></span>
-            <span className="badge-text">IBM India • Applied AI Specialist</span>
+            <span className="badge-text">DevOps &amp; SRE • Cloud Automation</span>
           </div>
           <div className="hero-subbadge">
-            <span>Assignment: Philip Morris International</span>
+            <span>IBM India • Assignment: Philip Morris International</span>
           </div>
         </div>
 
         {/* Main Headline */}
         <h1 className="hero-headline">
-          I'm Aditya. I work on <br />
-          <span className="gradient-text">data pipelines</span> that stay up.
+          I'm Aditya. I automate <br />
+          <span className="gradient-text">DevOps &amp; cloud</span> platforms.
         </h1>
 
         {/* Subtitle / Narrative */}
         <p className="hero-summary">
-          I'm a Data Engineer at IBM, currently supporting PMI's data platform.
-          I work with Matillion, Snowflake, Databricks, and AWS — mostly pipeline support,
-          incident triage, and small fixes that prevent repeats.
+          Transitioning into DevOps and Site Reliability Engineering (SRE) with Terraform Enterprise
+          and Ansible AWX. Building on hands-on experience operating AWS, Matillion, Snowflake, and
+          Databricks—focused on Infrastructure as Code, configuration automation, and resilient production systems.
         </p>
 
         {/* Action Buttons */}
         <div className="hero-actions">
           <Link to="/pipeline" className="btn btn-primary">
-            <span>See pipeline examples</span>
+            <span>See architecture &amp; SRE</span>
             <ArrowRight size={16} />
           </Link>
           <Link to="/experience" className="btn btn-secondary">
@@ -73,12 +74,13 @@ export default function Hero({ onOpenResume }: HeroProps) {
         <div className="hero-tech-strip">
           <span className="tech-strip-title">I USE:</span>
           <div className="tech-pills">
+            <span className="tech-pill"><Settings size={13} /> Ansible AWX</span>
+            <span className="tech-pill"><Building size={13} /> Terraform Enterprise</span>
             <span className="tech-pill"><Cloud size={13} /> AWS</span>
             <span className="tech-pill"><Database size={13} /> Matillion</span>
             <span className="tech-pill"><Database size={13} /> Snowflake</span>
             <span className="tech-pill"><Cpu size={13} /> Databricks</span>
             <span className="tech-pill"><Sparkles size={13} /> watsonx</span>
-            <span className="tech-pill"><ShieldCheck size={13} /> L2 support</span>
           </div>
         </div>
       </div>

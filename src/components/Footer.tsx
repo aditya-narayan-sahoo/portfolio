@@ -23,7 +23,7 @@ export default function Footer() {
 
           <div className="footer-nav-links">
             <Link to="/" className="footer-nav-link">Home</Link>
-            <Link to="/pipeline" className="footer-nav-link">Pipeline</Link>
+            <Link to="/pipeline" className="footer-nav-link">Architecture</Link>
             <Link to="/experience" className="footer-nav-link">Work</Link>
             <Link to="/credentials" className="footer-nav-link">Skills</Link>
             <Link to="/contact" className="footer-nav-link">Contact</Link>
@@ -53,6 +53,8 @@ export default function Footer() {
           </div>
 
           <div className="footer-tags">
+            <span className="footer-tag">Ansible AWX</span>
+            <span className="footer-tag">Terraform Enterprise</span>
             <span className="footer-tag">Matillion</span>
             <span className="footer-tag">Snowflake</span>
             <span className="footer-tag">Databricks</span>

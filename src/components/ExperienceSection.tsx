@@ -27,24 +27,24 @@ export default function ExperienceSection() {
           </div>
           <h2 className="section-title">Work history</h2>
           <p className="section-subtitle">
-            From intern to data engineer. Most recent first.
+            From associate systems engineer to cloud data, DevOps &amp; SRE automation. Most recent first.
           </p>
         </div>
 
         <div className="experience-timeline">
           {experiences.map((exp, index) => {
             const isExpanded = !!expandedIndices[index];
-            const isFeatured = exp.type === 'Client work';
+            const isCurrent = exp.badge === 'Current';
 
             return (
               <div
                 key={index}
-                className={`experience-card glass-panel ${isFeatured ? 'featured-card' : ''}`}
+                className={`experience-card glass-panel ${isCurrent ? 'featured-card' : ''}`}
               >
                 <div className="exp-card-header" onClick={() => toggleIndex(index)}>
                   <div className="exp-title-block">
                     <div className="exp-badges-row">
-                      <span className={`exp-badge ${isFeatured ? 'badge-featured' : 'badge-role'}`}>
+                      <span className={`exp-badge ${isCurrent ? 'badge-featured' : 'badge-role'}`}>
                         {exp.badge}
                       </span>
                       <span className="exp-type-tag">{exp.type}</span>

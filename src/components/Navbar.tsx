@@ -47,7 +47,7 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
 
   const navLinks = [
     { name: 'Home', to: '/', icon: Home, end: true },
-    { name: 'Pipeline', to: '/pipeline', icon: Layers },
+    { name: 'Architecture', to: '/pipeline', icon: Layers },
     { name: 'Work', to: '/experience', icon: Briefcase },
     { name: 'Skills', to: '/credentials', icon: Award },
     { name: 'Contact', to: '/contact', icon: Mail }

@@ -10,21 +10,21 @@ import {
 
 export const personalInfo: PersonalInfo = {
   name: "Aditya Narayan Sahoo",
-  title: "Data Engineer | Applied AI Specialist",
-  tagline: "I keep cloud data pipelines running and fix them when they break.",
+  title: "DevOps & SRE | Cloud & Data Automation Engineer",
+  tagline: "Automating cloud infrastructure, CI/CD, and resilient production platforms.",
   company: "IBM India Pvt. Ltd.",
   assignment: "Philip Morris International",
-  email: "adityasahoo@ibm.com",
+  email: "adityasahoo246@gmail.com",
   phone: "+91 7873529958",
   location: "India",
   github: "https://github.com/aditya-narayan-sahoo",
   linkedin: "https://www.linkedin.com/in/aditya-narayan-sahoo/",
-  summary: `I'm a Data Engineer and Applied AI Specialist at IBM. I support cloud data platforms for global clients — mostly Matillion, Snowflake, Databricks, and AWS. Day to day that's pipeline support, L2 incident triage, RCA, and small automation to reduce repeat work. I started in software (React, Node, Java) and moved into data and AI workflows.`,
+  summary: `I'm a Cloud & Platform Engineer at IBM transitioning into DevOps and Site Reliability Engineering (SRE). Building on my background operating large-scale cloud data platforms (AWS, Matillion, Snowflake, Databricks), I now manage and automate infrastructure workflows with Ansible AWX and Terraform Enterprise—focusing on Infrastructure as Code, configuration automation, CI/CD, incident triage, RCA, and eliminating operational toil.`,
   metrics: [
-    { label: "What I do", value: "Data pipelines", description: "Matillion, Snowflake, Databricks, AWS" },
-    { label: "On-call scope", value: "L2 support", description: "Triage, RCA, runbooks" },
-    { label: "Experience", value: "3+ years", description: "Support, software, AI workflows" },
-    { label: "Certifications", value: "10+ earned", description: "IBM, Azure, Matillion, Red Hat" }
+    { label: "Target Role", value: "DevOps & SRE", description: "IaC, CI/CD, reliability, automation" },
+    { label: "Core Automation", value: "AWX & Terraform", description: "Ansible AWX, Terraform Enterprise" },
+    { label: "Cloud & Data", value: "AWS & Platforms", description: "AWS, Matillion, Snowflake, Databricks" },
+    { label: "Experience", value: "3+ years", description: "Infrastructure, production ops, software" }
   ],
   languages: [
     { name: "English", level: "Fluent" },
@@ -38,6 +38,28 @@ export const personalInfo: PersonalInfo = {
 };
 
 export const pipelineNodes: PipelineNode[] = [
+  {
+    id: "terraform",
+    name: "Terraform Enterprise",
+    tech: "Terraform / HCL / Sentinel",
+    role: "Infrastructure as Code",
+    status: "healthy",
+    latency: "Sample: ~85ms",
+    throughput: "Sample: ~150 runs/day",
+    description: "Enterprise IaC platform managing cloud workspaces, state, policy checks, and AWS resource provisioning.",
+    icon: "Building"
+  },
+  {
+    id: "ansible-awx",
+    name: "Ansible AWX",
+    tech: "Ansible AWX / Playbooks",
+    role: "Config & orchestration",
+    status: "healthy",
+    latency: "Sample: ~120ms",
+    throughput: "Sample: ~200 jobs/day",
+    description: "Centralized automation controller for playbook execution, configuration management, and host orchestration.",
+    icon: "Settings"
+  },
   {
     id: "ingestion",
     name: "Source Ingestion",
@@ -166,41 +188,81 @@ export const incidentScenarios: IncidentScenario[] = [
       "Added a note to the runbook for other regional feeds."
     ],
     affectedNode: "aws"
+  },
+  {
+    id: "awx-inventory-timeout",
+    title: "Playbook timeout on inventory sync (Ansible AWX)",
+    component: "Ansible AWX",
+    severity: "Example: job failure",
+    symptom: "Scheduled configuration playbook timed out during dynamic inventory fact gathering.",
+    logs: [
+      "[10:30:12] AWX job #4821 INFRA_BASE_CONFIG started.",
+      "[10:32:45] Task 'Gathering Facts' stalled across decommissioned hosts.",
+      "[10:35:01] Job execution timeout reached (300s). Marked failed.",
+      "[10:35:04] Dependent workflow nodes held in pending state."
+    ],
+    rca: "The dynamic inventory source still referenced retired nodes, causing SSH fact-gathering timeouts.",
+    resolution: [
+      "Filtered stale hosts in the dynamic inventory source.",
+      "Configured unreachable host handling and adjusted job timeouts.",
+      "Re-ran the workflow template and verified all nodes converged."
+    ],
+    affectedNode: "ansible-awx"
+  },
+  {
+    id: "terraform-state-lock",
+    title: "Workspace state lock contention (Terraform Enterprise)",
+    component: "Terraform Enterprise",
+    severity: "Example: blocked apply",
+    symptom: "Terraform apply queued behind a stale state lock left by an interrupted run.",
+    logs: [
+      "[15:12:08] Workspace cloud-prod-network: Plan queued.",
+      "[15:12:11] Error acquiring state lock: held by run-8f2a19c (4h old).",
+      "[15:12:15] Run halted pending lock verification.",
+      "[15:12:18] Audited prior run logs and AWS resource state."
+    ],
+    rca: "An earlier run lost connectivity mid-apply, leaving the workspace lock active without cleanup.",
+    resolution: [
+      "Confirmed no partial or conflicting changes existed in target AWS resources.",
+      "Released the stale lock safely via Terraform Enterprise workspace controls.",
+      "Re-triggered plan and apply, verifying zero drift afterward."
+    ],
+    affectedNode: "terraform"
   }
 ];
 
 export const experiences: Experience[] = [
   {
-    role: "Applied AI Specialist",
+    role: "Applied AI & Platform Automation Specialist",
     company: "IBM India Pvt. Ltd.",
     location: "India",
     period: "Jul 2026 - Present",
     type: "Full-Time",
     badge: "Current",
-    summary: "I work on AI-assisted engineering and keep data platforms stable.",
+    summary: "Leading infrastructure automation with Ansible AWX and Terraform Enterprise while driving DevOps and SRE reliability practices.",
     bullets: [
-      "Handle L2 support for data platforms: triage, RCA, and restoring service.",
-      "Support Matillion, Snowflake, Databricks, and AWS workloads.",
-      "Write and update runbooks so repeat incidents are faster to fix.",
-      "Use my software background (React, Node, Java) for small tools and automation."
+      "Provision and manage cloud infrastructure workspaces, state, and Sentinel policies using Terraform Enterprise.",
+      "Automate configuration management, patching, and orchestration workflows through Ansible AWX playbooks.",
+      "Apply SRE principles—incident triage, root cause analysis (RCA), and automated remediation—across AWS, Matillion, Snowflake, and Databricks.",
+      "Build repeatable runbooks, CI/CD workflows, and internal tooling (React, Node.js, Python/Shell) to eliminate manual toil."
     ],
-    skills: ["Applied AI", "Matillion ETL", "Snowflake", "Databricks", "AWS", "L2 Support", "RCA", "React", "Node.js"]
+    skills: ["Ansible AWX", "Terraform Enterprise", "DevOps & SRE", "IaC", "CI/CD", "AWS", "RCA", "Matillion ETL", "Snowflake", "Databricks"]
   },
   {
-    role: "Data & Cloud Engineer",
+    role: "Data & Cloud Platform Engineer",
     company: "Philip Morris International (via IBM)",
     location: "India",
     period: "May 2025 - Present",
     type: "Client work",
-    badge: "Featured",
-    summary: "I support PMI's data platform across global markets.",
+    badge: "Client Assignment",
+    summary: "Operating PMI's global cloud data platform and infrastructure automation workflows.",
     bullets: [
-      "Keep ingestion, transforms, and reporting jobs running.",
-      "Debug ETL failures, scheduling issues, and slow queries.",
-      "Coordinate with infra and client teams during incidents.",
-      "Wrote runbooks and troubleshooting docs for the team."
+      "Operate Ansible AWX job templates and Terraform Enterprise workspaces for cloud environment provisioning and maintenance.",
+      "Keep ingestion, transformation, and analytics workloads reliable across AWS, Matillion, Snowflake, and Databricks.",
+      "Debug infrastructure drift, ETL failures, scheduling issues, and performance bottlenecks.",
+      "Coordinate cross-functional incident response and author operational runbooks for the team."
     ],
-    skills: ["Matillion", "Snowflake", "Databricks Spark", "AWS S3", "ServiceNow", "Runbooks"]
+    skills: ["Ansible AWX", "Terraform Enterprise", "AWS S3", "Matillion", "Snowflake", "Databricks Spark", "ServiceNow", "Runbooks"]
   },
   {
     role: "Associate Systems Engineer",
@@ -209,13 +271,13 @@ export const experiences: Experience[] = [
     period: "Feb 2024 - Jun 2026",
     type: "Full-Time",
     badge: "Previous role",
-    summary: "L2 support and log analysis for cloud data platforms.",
+    summary: "Production reliability, log analysis, and operational automation for cloud platforms.",
     bullets: [
-      "Supported Matillion, Snowflake, Databricks, and AWS in production.",
-      "Read logs to find repeat failures and fix root causes.",
-      "Added scheduling and retry automation to cut manual triage."
+      "Operated AWS, Matillion, Snowflake, and Databricks workloads in high-throughput production environments.",
+      "Analyzed system and application logs to isolate recurring failures and resolve root causes.",
+      "Built scheduling and retry automation with Git/CI/CD practices to reduce manual triage."
     ],
-    skills: ["L2 Support", "Log Analysis", "Linux", "SQL", "Git", "CI/CD"]
+    skills: ["SRE & Ops", "Log Analysis", "Linux", "Git", "CI/CD", "SQL"]
   },
   {
     role: "Software Engineer Intern",
@@ -236,19 +298,46 @@ export const experiences: Experience[] = [
 
 export const skillCategories: SkillCategory[] = [
   {
-    id: "cloud-data",
-    name: "Cloud & Data",
-    description: "What I use most days.",
+    id: "devops-iac",
+    name: "DevOps, IaC & Automation",
+    description: "Infrastructure as Code, configuration, and delivery.",
     skills: [
+      { name: "Terraform Enterprise", level: "Practitioner", highlight: true },
+      { name: "Ansible AWX", level: "Practitioner", highlight: true },
+      { name: "Infrastructure as Code (IaC)", level: "Practitioner", highlight: true },
+      { name: "Configuration Management (Ansible)", level: "Practitioner", highlight: true },
+      { name: "Git & GitHub CI/CD", level: "Advanced", highlight: true },
+      { name: "Linux & Shell Scripting", level: "Advanced", highlight: false },
+      { name: "Operational Automation", level: "Advanced", highlight: false },
+      { name: "Runbook Engineering", level: "Specialist", highlight: false }
+    ]
+  },
+  {
+    id: "sre-ops",
+    name: "SRE & Platform Reliability",
+    description: "Observability, incident response, and resilience.",
+    skills: [
+      { name: "Site Reliability Engineering (SRE)", level: "Practitioner", highlight: true },
+      { name: "Incident Management & Triage", level: "Specialist", highlight: true },
+      { name: "Root Cause Analysis (RCA)", level: "Specialist", highlight: true },
+      { name: "Application Monitoring & Logs", level: "Advanced", highlight: true },
+      { name: "Performance Optimization", level: "Specialist", highlight: false },
+      { name: "Continuous Service Improvement", level: "Specialist", highlight: false }
+    ]
+  },
+  {
+    id: "cloud-data",
+    name: "Cloud & Data Platforms",
+    description: "Cloud infrastructure and data workloads.",
+    skills: [
+      { name: "AWS Cloud Services", level: "Advanced", highlight: true },
       { name: "Matillion ETL", level: "Specialist", highlight: true },
       { name: "Snowflake", level: "Advanced", highlight: true },
       { name: "Databricks & Spark", level: "Advanced", highlight: true },
-      { name: "AWS Cloud Services", level: "Advanced", highlight: true },
-      { name: "SQL & Advanced Querying", level: "Expert", highlight: true },
-      { name: "ETL Pipeline Architecture", level: "Specialist", highlight: true },
+      { name: "SQL & Advanced Querying", level: "Expert", highlight: false },
+      { name: "ETL Pipeline Architecture", level: "Specialist", highlight: false },
       { name: "Data Warehousing (DWH)", level: "Advanced", highlight: false },
       { name: "Data Integration & Ingestion", level: "Specialist", highlight: false },
-      { name: "Cloud Integration", level: "Advanced", highlight: false },
       { name: "NoSQL & Document Stores", level: "Proficient", highlight: false }
     ]
   },
@@ -263,21 +352,6 @@ export const skillCategories: SkillCategory[] = [
       { name: "AI-First Development", level: "Practitioner", highlight: true },
       { name: "Intelligent Workflows", level: "Advanced", highlight: false },
       { name: "AI Solution Architecture", level: "Practitioner", highlight: false }
-    ]
-  },
-  {
-    id: "devops-ops",
-    name: "Support & Ops",
-    description: "Keeping things running.",
-    skills: [
-      { name: "Incident Management (L2)", level: "Specialist", highlight: true },
-      { name: "Root Cause Analysis (RCA)", level: "Specialist", highlight: true },
-      { name: "Application Monitoring & Logs", level: "Advanced", highlight: true },
-      { name: "Operational Automation", level: "Advanced", highlight: true },
-      { name: "Linux & Shell Scripting", level: "Advanced", highlight: false },
-      { name: "Git & GitHub CI/CD", level: "Advanced", highlight: false },
-      { name: "Performance Optimization", level: "Specialist", highlight: false },
-      { name: "Runbook Engineering", level: "Specialist", highlight: false }
     ]
   },
   {
