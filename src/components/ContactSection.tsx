@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { personalInfo } from '../data/portfolioData';
 import {
   Mail,
@@ -6,7 +6,10 @@ import {
   Check,
   MapPin,
   FileText,
-  ArrowUpRight
+  ArrowUpRight,
+  Clock,
+  Sparkles,
+  Send
 } from 'lucide-react';
 
 const LinkedInIcon = () => (
@@ -27,6 +30,14 @@ interface ContactSectionProps {
 
 export default function ContactSection({ onOpenResume }: ContactSectionProps) {
   const [copied, setCopied] = useState(false);
+  const [selectedTopic, setSelectedTopic] = useState<string>('DevOps / SRE Opportunity');
+
+  const topics = [
+    'DevOps / SRE Opportunity',
+    'IaC & AWX Automation',
+    'Cloud Data & Reliability',
+    'General Consultation'
+  ];
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(personalInfo.email);
@@ -34,33 +45,37 @@ export default function ContactSection({ onOpenResume }: ContactSectionProps) {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const mailtoHref = `mailto:${personalInfo.email}?subject=${encodeURIComponent(`[Contact] ${selectedTopic} - via Portfolio`)}`;
+
   return (
     <section id="contact" className="section contact-section">
       <div className="container">
+        {/* Section Header */}
         <div className="section-header">
           <div className="section-tag">
             <Mail size={14} />
             <span>Contact</span>
           </div>
-          <h2 className="section-title">Email is best</h2>
+          <h2 className="section-title">Get in Touch</h2>
           <p className="section-subtitle">
-            I read everything. Short messages with context get the fastest reply.
+            Open to DevOps &amp; Site Reliability Engineering opportunities, infrastructure automation initiatives, and platform discussions.
           </p>
         </div>
 
         <div className="contact-grid">
+          {/* Main Direct Contact Card */}
           <div className="contact-info-card glass-panel">
             <div className="contact-email-box">
               <div className="email-box-meta">
-                <span className="email-label">Email</span>
-                <a className="email-address" href={`mailto:${personalInfo.email}`}>
+                <span className="email-label">PRIMARY INBOX</span>
+                <a className="email-address" href={mailtoHref}>
                   {personalInfo.email}
                 </a>
               </div>
               <button
                 onClick={handleCopyEmail}
                 className="btn btn-outline-cyan btn-sm btn-copy"
-                title="Copy email"
+                title="Copy email to clipboard"
               >
                 {copied ? (
                   <>
@@ -76,18 +91,41 @@ export default function ContactSection({ onOpenResume }: ContactSectionProps) {
               </button>
             </div>
 
+            {/* Quick Topic Selector */}
+            <div className="contact-topic-selector">
+              <span className="topic-selector-label">Quick Subject Preset:</span>
+              <div className="topic-chips">
+                {topics.map(topic => (
+                  <button
+                    key={topic}
+                    onClick={() => setSelectedTopic(topic)}
+                    className={`topic-chip ${selectedTopic === topic ? 'active' : ''}`}
+                  >
+                    {topic}
+                  </button>
+                ))}
+              </div>
+            </div>
+
             <div className="contact-privacy-meta">
               <div className="privacy-item">
                 <MapPin size={16} className="text-cyan" />
                 <div>
                   <strong>{personalInfo.location}</strong>
-                  <span>Open to remote</span>
+                  <span>Open to remote &amp; hybrid roles</span>
+                </div>
+              </div>
+              <div className="privacy-item">
+                <Clock size={16} className="text-emerald" />
+                <div>
+                  <strong>Fast turnaround</strong>
+                  <span>Usually responds within 24 hours</span>
                 </div>
               </div>
             </div>
 
             <div className="contact-links-block">
-              <span className="links-title">Elsewhere</span>
+              <span className="links-title">Professional Profiles</span>
               <div className="links-row">
                 <a
                   href={personalInfo.linkedin}
@@ -116,33 +154,50 @@ export default function ContactSection({ onOpenResume }: ContactSectionProps) {
                   className="social-btn glass-panel btn-cv-trigger"
                 >
                   <FileText size={16} />
-                  <span>CV (PDF)</span>
+                  <span>Curriculum Vitae</span>
                 </button>
               </div>
             </div>
 
-            <div style={{ marginTop: '1.5rem' }}>
+            <div style={{ marginTop: '1.75rem' }}>
               <a
-                href={`mailto:${personalInfo.email}?subject=Hello Aditya`}
-                className="btn btn-primary btn-submit"
+                href={mailtoHref}
+                className="btn btn-primary btn-submit btn-full"
               >
-                <Mail size={15} />
-                <span>Write email</span>
+                <Send size={15} />
+                <span>Launch Email ({selectedTopic})</span>
               </a>
             </div>
           </div>
 
+          {/* Context & What to Include Card */}
           <div className="contact-form-card glass-panel">
-            <h3 className="form-title">What to include</h3>
+            <div className="form-card-badge">
+              <Sparkles size={14} className="text-cyan" />
+              <span>COMMUNICATION GUIDE</span>
+            </div>
+            <h3 className="form-title">What helps in your message</h3>
             <ul className="cv-list">
-              <li>Who you are and what role or project this is about.</li>
-              <li>Stack and timeline, if hiring.</li>
-              <li>One link: job post, repo, or doc.</li>
+              <li>
+                <strong>Role &amp; Team context:</strong> Target title (DevOps, SRE, Platform Engineer), team mission, and organization.
+              </li>
+              <li>
+                <strong>Tech Stack:</strong> Primary tools used (Terraform, Ansible, AWS, Kubernetes, CI/CD, Data platforms).
+              </li>
+              <li>
+                <strong>Arrangement &amp; Timeline:</strong> Location, remote flexibility, and hiring schedule.
+              </li>
+              <li>
+                <strong>Verification Links:</strong> Happy to supply credential verification badges and GitHub references upon request.
+              </li>
             </ul>
-            <p className="edu-details" style={{ marginTop: '1rem' }}>
-              No form here on purpose — email avoids spam folders and fake success
-              messages. You'll reach me directly.
-            </p>
+
+            <div className="contact-guarantee-box">
+              <p className="edu-details">
+                Direct email communication ensures zero third-party spam filtering or contact form drop-offs.
+                Every genuine inquiry receives a thoughtful, direct response.
+              </p>
+            </div>
           </div>
         </div>
       </div>

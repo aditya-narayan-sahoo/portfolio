@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { experiences } from '../data/portfolioData';
 import {
   Briefcase,
@@ -7,7 +7,9 @@ import {
   MapPin,
   ChevronDown,
   ChevronUp,
-  CheckCircle2
+  CheckCircle2,
+  Sparkles,
+  Layers
 } from 'lucide-react';
 
 export default function ExperienceSection() {
@@ -17,20 +19,49 @@ export default function ExperienceSection() {
     setExpandedIndices(prev => ({ ...prev, [index]: !prev[index] }));
   };
 
+  const allExpanded = experiences.every((_, idx) => !!expandedIndices[idx]);
+
+  const toggleAll = () => {
+    if (allExpanded) {
+      setExpandedIndices({});
+    } else {
+      const all: Record<number, boolean> = {};
+      experiences.forEach((_, idx) => {
+        all[idx] = true;
+      });
+      setExpandedIndices(all);
+    }
+  };
+
   return (
     <section id="experience" className="section experience-section">
       <div className="container">
-        <div className="section-header">
-          <div className="section-tag">
-            <Briefcase size={14} />
-            <span>Work</span>
+        {/* Section Header */}
+        <div className="section-header-row">
+          <div className="section-header">
+            <div className="section-tag">
+              <Briefcase size={14} />
+              <span>Work</span>
+            </div>
+            <h2 className="section-title">Work Experience</h2>
+            <p className="section-subtitle">
+              From associate systems engineer to cloud data, DevOps &amp; SRE automation. Most recent first.
+            </p>
           </div>
-          <h2 className="section-title">Work history</h2>
-          <p className="section-subtitle">
-            From associate systems engineer to cloud data, DevOps &amp; SRE automation. Most recent first.
-          </p>
+
+          <div className="section-header-action">
+            <button 
+              onClick={toggleAll}
+              className="btn btn-secondary btn-sm"
+              title={allExpanded ? "Collapse all positions" : "Expand all positions"}
+            >
+              <Layers size={14} />
+              <span>{allExpanded ? 'Collapse All' : 'Expand All'}</span>
+            </button>
+          </div>
         </div>
 
+        {/* Timeline */}
         <div className="experience-timeline">
           {experiences.map((exp, index) => {
             const isExpanded = !!expandedIndices[index];
@@ -39,14 +70,21 @@ export default function ExperienceSection() {
             return (
               <div
                 key={index}
-                className={`experience-card glass-panel ${isCurrent ? 'featured-card' : ''}`}
+                className={`experience-card glass-panel ${isCurrent ? 'featured-card active-role-card' : ''}`}
               >
                 <div className="exp-card-header" onClick={() => toggleIndex(index)}>
                   <div className="exp-title-block">
                     <div className="exp-badges-row">
-                      <span className={`exp-badge ${isCurrent ? 'badge-featured' : 'badge-role'}`}>
-                        {exp.badge}
-                      </span>
+                      {isCurrent ? (
+                        <span className="exp-badge badge-current-active">
+                          <span className="current-pulse-dot"></span>
+                          <span>Active Role • {exp.badge}</span>
+                        </span>
+                      ) : (
+                        <span className="exp-badge badge-role">
+                          {exp.badge}
+                        </span>
+                      )}
                       <span className="exp-type-tag">{exp.type}</span>
                     </div>
 
@@ -94,13 +132,19 @@ export default function ExperienceSection() {
                     </div>
 
                     <div className="exp-skills-row">
-                      <span className="exp-skills-label">Tools:</span>
+                      <span className="exp-skills-label">Core stack:</span>
                       <div className="exp-tags">
-                        {exp.skills?.map((skill, sIdx) => (
-                          <span key={sIdx} className="skill-pill-sm">
-                            {skill}
-                          </span>
-                        ))}
+                        {exp.skills?.map((skill, sIdx) => {
+                          const isHighlighted = skill.includes('AWX') || skill.includes('Terraform') || skill.includes('DevOps') || skill.includes('SRE');
+                          return (
+                            <span 
+                              key={sIdx} 
+                              className={`skill-pill-sm ${isHighlighted ? 'skill-pill-featured' : ''}`}
+                            >
+                              {skill}
+                            </span>
+                          );
+                        })}
                       </div>
                     </div>
                   </div>

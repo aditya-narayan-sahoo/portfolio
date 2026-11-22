@@ -346,6 +346,7 @@ export const skillCategories: SkillCategory[] = [
     name: "Applied AI",
     description: "AI tools I actually use in work.",
     skills: [
+      { name: "Claude Code", level: "Certified", highlight: true },
       { name: "Generative AI Foundations", level: "Certified", highlight: true },
       { name: "IBM watsonx", level: "Certified", highlight: true },
       { name: "Agentic AI Concepts", level: "Practitioner", highlight: true },
@@ -385,6 +386,22 @@ export const skillCategories: SkillCategory[] = [
 ];
 
 export const credentials: Credential[] = [
+  {
+    title: "Claude Code Certified Associate: Fundamentals",
+    issuer: "Anthropic",
+    year: "2026",
+    category: "AI",
+    featured: true,
+    code: "ANT-CCA-FUND"
+  },
+  {
+    title: "Claude Code Certified Developer: Fundamentals",
+    issuer: "Anthropic",
+    year: "2026",
+    category: "AI",
+    featured: true,
+    code: "ANT-CCD-FUND"
+  },
   {
     title: "IBM watsonx Essentials",
     issuer: "IBM",

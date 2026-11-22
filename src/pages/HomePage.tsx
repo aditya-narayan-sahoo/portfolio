@@ -41,7 +41,7 @@ export default function HomePage({ onOpenResume }: HomePageProps) {
       icon: Award,
       color: 'text-purple',
       title: 'Skills and certs',
-      description: 'DevOps, IaC, SRE, and cloud data tools plus IBM, Azure, Matillion, and Red Hat certifications.',
+      description: 'DevOps, IaC, SRE, and cloud data tools plus Anthropic Claude Code, IBM, Azure, Matillion, and Red Hat certifications.',
       link: '/credentials',
       cta: 'Skills and certs'
     },
